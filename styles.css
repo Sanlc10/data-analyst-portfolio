@@ -21,10 +21,11 @@
   --ink:          #171717;
   --slate:        #475569;
   --slate-soft:   #94A3B8;
-  --cobalt:       #1E3A5F;
-  --cobalt-deep:  #0F2540;
-  --cobalt-soft:  rgba(30, 58, 95, 0.08);
-  --cobalt-line:  rgba(30, 58, 95, 0.18);
+  --cobalt:       #2196F3;                       /* primary accent — Material Blue 500 */
+  --cobalt-deep:  #1565C0;                       /* hover / active — Material Blue 800 */
+  --cobalt-soft:  rgba(33, 150, 243, 0.08);      /* tint background */
+  --cobalt-line:  rgba(33, 150, 243, 0.22);      /* tint border */
+  --cobalt-ink:   #0B3D78;                       /* deep editorial blue for text on cobalt */
   --warn:         #B45309;
 
   /* Typography */
@@ -96,8 +97,8 @@ body {
   color: var(--ink);
   background: var(--ivory);
   background-image:
-    radial-gradient(1200px 600px at 80% -10%, rgba(30, 58, 95, 0.04), transparent 60%),
-    radial-gradient(800px 400px at 0% 110%, rgba(30, 58, 95, 0.03), transparent 60%);
+    radial-gradient(1200px 600px at 80% -10%, rgba(33, 150, 243, 0.05), transparent 60%),
+    radial-gradient(800px 400px at 0% 110%, rgba(33, 150, 243, 0.04), transparent 60%);
   background-attachment: fixed;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
@@ -685,7 +686,7 @@ mark {
   font-weight: 500;
   letter-spacing: 0.04em;
   padding: 0.3rem 0.65rem;
-  color: var(--cobalt);
+  color: var(--cobalt-ink);
   background: var(--cobalt-soft);
   border-radius: 999px;
   border: 1px solid var(--cobalt-line);
@@ -694,6 +695,117 @@ mark {
   background: transparent;
   color: var(--slate);
   border-color: var(--rule);
+}
+
+/* ---------- Tool chip (with icon) — used in tech stack + project tags ---------- */
+.tool-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem 0.4rem 0.55rem;
+  background: var(--ivory);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink);
+  transition: transform var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast),
+              background-color var(--dur-fast);
+  cursor: default;
+}
+.tool-chip:hover {
+  transform: translateY(-1px);
+  border-color: var(--cobalt-line);
+  background: var(--cobalt-soft);
+}
+.tool-chip__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: block;
+  /* Brand-color icons retain their fill. Abstract (cobalt) icons use currentColor. */
+}
+.tool-chip__icon[data-style="mono"] {
+  color: var(--cobalt);
+}
+.tool-chip--abstract {
+  /* Distinct visual treatment so abstract skills feel intentional, not "missing logo". */
+  background: var(--cobalt-soft);
+  border-color: var(--cobalt-line);
+  color: var(--cobalt-ink);
+}
+.tool-chip--abstract .tool-chip__icon { color: var(--cobalt); }
+.tool-chip--abstract:hover {
+  background: var(--cobalt);
+  border-color: var(--cobalt);
+  color: #fff;
+}
+.tool-chip--abstract:hover .tool-chip__icon { color: #fff; }
+.tool-chip--ghost {
+  background: transparent;
+  color: var(--slate);
+}
+.tool-chip__sub {
+  color: var(--slate-soft);
+  font-weight: 400;
+  font-size: 0.7rem;
+  margin-left: 0.15rem;
+}
+
+/* Compact icon-only mini chip — for case study hero "Tools" facts */
+.tool-mini-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin: 0;
+}
+.tool-mini {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: var(--ivory);
+  border: 1px solid var(--rule);
+  position: relative;
+  transition: transform var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast);
+}
+.tool-mini:hover {
+  transform: translateY(-2px);
+  border-color: var(--cobalt);
+  z-index: 2;
+}
+.tool-mini__icon { width: 16px; height: 16px; display: block; }
+
+/* Hover tooltip — pure CSS */
+.tool-mini[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--ink);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.55rem;
+  border-radius: var(--r-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+.tool-mini:hover[data-tip]::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* ---------- About section ----------------------------------------------- */
@@ -780,8 +892,8 @@ mark {
   animation: pulse 2.2s ease-in-out infinite;
 }
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(30, 58, 95, 0.4); }
-  50%      { box-shadow: 0 0 0 6px rgba(30, 58, 95, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.45); }
+  50%      { box-shadow: 0 0 0 6px rgba(33, 150, 243, 0); }
 }
 
 .timeline__role {
@@ -963,14 +1075,12 @@ mark {
    CASE STUDY SPECIFIC
    ========================================================================== */
 
+/* Breadcrumb sits below the fixed nav (cleared by margin), with subtle separator. */
 .crumb {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  padding-block: var(--s-2);
-  background: rgba(250, 248, 243, 0.85);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(4rem, 8vw, 5rem);   /* clears the fixed nav at all sizes */
+  padding-block: var(--s-3) var(--s-2);
   border-bottom: 1px solid var(--rule);
   font-size: 0.78rem;
   letter-spacing: 0.06em;
@@ -989,7 +1099,9 @@ mark {
 .crumb__sep { color: var(--slate-soft); }
 
 .cs-hero {
-  padding-block: clamp(4rem, 8vw, 7rem) clamp(3rem, 6vw, 5rem);
+  /* Top is smaller because the crumb already clears the fixed nav. */
+  padding-block: clamp(2rem, 5vw, 4rem) clamp(3rem, 6vw, 5rem);
+  position: relative;
 }
 
 .cs-hero__numeral {
@@ -1047,6 +1159,17 @@ mark {
   font-weight: 500;
   letter-spacing: -0.02em;
   color: var(--ink);
+}
+.cs-facts dd.cs-facts__tools {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  padding-top: 0.2rem;
 }
 
 /* Article-style content blocks */

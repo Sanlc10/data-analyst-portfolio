@@ -70,7 +70,13 @@
           </div>
           <div>
             <dt data-i18n="cs.factTools">Tools</dt>
-            <dd>Python · Pandas · SciPy</dd>
+            <dd class="cs-facts__tools">
+              <span class="tool-mini" data-tip="Python"><img class="tool-mini__icon" src="https://cdn.simpleicons.org/python" alt="Python" loading="lazy" /></span>
+              <span class="tool-mini" data-tip="Pandas"><img class="tool-mini__icon" src="https://cdn.simpleicons.org/pandas/150458" alt="Pandas" loading="lazy" /></span>
+              <span class="tool-mini" data-tip="NumPy"><img class="tool-mini__icon" src="https://cdn.simpleicons.org/numpy" alt="NumPy" loading="lazy" /></span>
+              <span class="tool-mini" data-tip="SciPy"><img class="tool-mini__icon" src="https://cdn.simpleicons.org/scipy" alt="SciPy" loading="lazy" /></span>
+              <span class="tool-mini" data-tip="Jupyter"><img class="tool-mini__icon" src="https://cdn.simpleicons.org/jupyter" alt="Jupyter" loading="lazy" /></span>
+            </dd>
           </div>
           <div>
             <dt data-i18n="cs.factDomain">Domain</dt>
@@ -306,7 +312,7 @@ stats.ttest_ind(ny_nj_income, other_income, equal_var=False)</code></pre>
 
   <script src="/lib/i18n.js"></script>
   <script src="/script.js"></script>
-  <script src="charts.js" defer></script>
+  <script src="/projects/megaline-revenue/charts.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       if (window.hljs) document.querySelectorAll('pre code').forEach(el => window.hljs.highlightElement(el));
