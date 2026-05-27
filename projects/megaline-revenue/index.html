@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAF8F3" />
+  <title>Megaline — Customer Revenue Analysis · Santiago Lopez</title>
+  <meta name="description" content="Two-sample hypothesis testing to identify which prepaid telecom plan generates higher revenue per user." />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Megaline — Customer Revenue Analysis" />
+  <meta property="og:description" content="Two-sample hypothesis testing to identify which prepaid telecom plan generates higher revenue per user." />
+  <meta property="og:image" content="/assets/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/atom-one-light.min.css" />
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
+
+  <header class="nav" id="nav" role="banner">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="/" aria-label="Santiago Lopez — Home">
+        <span>Santiago Lopez</span>
+        <small data-i18n="nav.role">Data Analyst</small>
+      </a>
+      <nav class="nav__menu" aria-label="Primary">
+        <a class="nav__link" href="/#projects" data-i18n="nav.projects">Projects</a>
+        <a class="nav__link" href="/#about" data-i18n="nav.about">About</a>
+        <a class="nav__link" href="/#contact" data-i18n="nav.contact">Contact</a>
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="is-active">EN</button>
+          <button type="button" data-lang="es">ES</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="crumb">
+    <div class="container crumb__inner">
+      <a href="/" data-i18n="cs.backHome">Home</a>
+      <span class="crumb__sep">/</span>
+      <a href="/#projects" data-i18n="cs.backProjects">Projects</a>
+      <span class="crumb__sep">/</span>
+      <span class="crumb__current">03 · Megaline</span>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section class="cs-hero">
+      <div class="cs-hero__numeral" aria-hidden="true">03</div>
+      <div class="container">
+        <span class="eyebrow reveal" data-i18n="cs3.tag">Statistical Testing · Telecom · α = 0.01</span>
+        <h1 class="cs-hero__title reveal" data-delay="1" data-i18n="cs3.title">Two prepaid plans, one statistically louder.</h1>
+        <p class="cs-hero__intro reveal" data-delay="2" data-i18n="cs3.intro">Megaline, a prepaid telecom operator, needed to decide which of two plans — Surf or Ultimate — generates more revenue per user. A clean two-sample hypothesis test, plus a regional twist that nobody asked for.</p>
+
+        <dl class="cs-facts reveal" data-delay="3">
+          <div>
+            <dt data-i18n="cs.factDataset">Dataset</dt>
+            <dd>500 users · 5 tables · 2018</dd>
+          </div>
+          <div>
+            <dt data-i18n="cs.factTools">Tools</dt>
+            <dd>Python · Pandas · SciPy</dd>
+          </div>
+          <div>
+            <dt data-i18n="cs.factDomain">Domain</dt>
+            <dd>Telecom · Pricing</dd>
+          </div>
+          <div>
+            <dt data-i18n="cs.factYear">Year</dt>
+            <dd>2025</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="container cs-body">
+
+      <article class="cs-block dropcap reveal">
+        <aside class="cs-block__label" data-i18n="cs.contextLabel">Business context</aside>
+        <div>
+          <h2 data-i18n="cs3.contextTitle">A pricing decision dressed as a statistics question.</h2>
+          <p data-i18n="cs3.contextP1">Megaline's commercial team had a question that sounded simple: where should we steer customers? Surf or Ultimate? The plans differ in pricing, included minutes, messages and data allowances — but customer behaviour rarely matches plan design, so revenue per user is the only honest comparison.</p>
+          <p data-i18n="cs3.contextP2">I worked with 2018 data on 500 subscribers across five tables — users, plans, calls, messages and internet sessions. The analysis had to land in a decision the commercial team could defend to marketing finance.</p>
+        </div>
+      </article>
+
+      <article class="cs-block reveal">
+        <aside class="cs-block__label" data-i18n="cs.methodLabel">Methodology</aside>
+        <div>
+          <h2 data-i18n="cs3.methodTitle">Five tables, one decision.</h2>
+          <div class="method-steps">
+            <div class="method-step">
+              <h4 data-i18n="cs3.m1Title">Data integration</h4>
+              <p data-i18n="cs3.m1Body">Joined and harmonised five datasets. Resolved date types and a handful of edge-case anomalies before aggregating.</p>
+            </div>
+            <div class="method-step">
+              <h4 data-i18n="cs3.m2Title">Revenue modelling</h4>
+              <p data-i18n="cs3.m2Body">Computed monthly revenue per user from raw consumption + tariff + overage logic. This was the metric everything else hinged on.</p>
+            </div>
+            <div class="method-step">
+              <h4 data-i18n="cs3.m3Title">Behavioural EDA</h4>
+              <p data-i18n="cs3.m3Body">Compared distributions of minutes, messages and MB across the two plans using box plots and summary statistics.</p>
+            </div>
+            <div class="method-step">
+              <h4 data-i18n="cs3.m4Title">Hypothesis tests</h4>
+              <p data-i18n="cs3.m4Body">Two-sample t-tests at α = 0.01 — one for plan-level revenue, one for regional revenue (NY-NJ vs everywhere else).</p>
+            </div>
+            <div class="method-step">
+              <h4 data-i18n="cs3.m5Title">Recommendation</h4>
+              <p data-i18n="cs3.m5Body">Translated the test outcomes into a budget-allocation and pricing-positioning recommendation.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cs-block reveal">
+        <aside class="cs-block__label" data-i18n="cs.insightsLabel">Key insights</aside>
+        <div>
+          <h2 data-i18n="cs3.insightsTitle">Behaviour looked the same. Revenue did not.</h2>
+
+          <div class="insights">
+            <div class="insight">
+              <div class="insight__number">430.5<small>min</small></div>
+              <div class="insight__label" data-i18n="cs3.i1Label">Surf vs Ultimate · monthly minutes</div>
+              <p class="insight__body" data-i18n="cs3.i1Body">Behavioural metrics are almost indistinguishable: Surf users average 428.7 minutes per month, Ultimate users 430.5. Same with messages and data.</p>
+            </div>
+            <div class="insight">
+              <div class="insight__number">&lt;0.01<small>p</small></div>
+              <div class="insight__label" data-i18n="cs3.i2Label">p-value, plan revenue test</div>
+              <p class="insight__body" data-i18n="cs3.i2Body">Despite near-identical usage, monthly revenue differs significantly between plans (p &lt; 0.01). Pricing structure, not behaviour, is doing the work.</p>
+            </div>
+            <div class="insight">
+              <div class="insight__number">NY-NJ<small>diff</small></div>
+              <div class="insight__label" data-i18n="cs3.i3Label">Regional revenue gap</div>
+              <p class="insight__body" data-i18n="cs3.i3Body">NY-NJ subscribers show a revenue distribution distinct enough to reject equality with the rest of the country — a clear case for geo-targeted pricing.</p>
+            </div>
+          </div>
+
+          <div class="chart-wrap">
+            <div class="chart-wrap__title" data-i18n="cs3.chart1Title">Call minutes — Surf vs Ultimate</div>
+            <div class="chart-wrap__caption" data-i18n="cs3.chart1Caption">Distribution of monthly call minutes for both plans. Centres are nearly identical; the tails tell the difference.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartMinutes" aria-label="Distribution of monthly call minutes per plan"></canvas></div>
+          </div>
+
+          <div class="chart-wrap">
+            <div class="chart-wrap__title" data-i18n="cs3.chart2Title">Monthly revenue by plan</div>
+            <div class="chart-wrap__caption" data-i18n="cs3.chart2Caption">Average revenue per user, month over month. Ultimate consistently leads — and the gap is statistically real.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartRevenue" aria-label="Monthly revenue line chart per plan"></canvas></div>
+          </div>
+
+          <div class="chart-wrap">
+            <div class="chart-wrap__title" data-i18n="cs3.chart3Title">Revenue by region</div>
+            <div class="chart-wrap__caption" data-i18n="cs3.chart3Caption">Comparison of average revenue between NY-NJ subscribers and the rest of the customer base.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartRegion" aria-label="Average revenue by region bar chart"></canvas></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cs-block reveal">
+        <aside class="cs-block__label" data-i18n="cs.codeLabel">Code highlights</aside>
+        <div>
+          <h2 data-i18n="cs3.codeTitle">The pieces of code that earned the conclusion.</h2>
+
+          <div class="code-block">
+            <div class="code-block__head">
+              <span class="code-block__lang">Python · Aggregation</span>
+              <span>megaline.ipynb</span>
+            </div>
+<pre><code class="language-python">calls_per_month = calls_df.pivot_table(
+    index=['user_id', 'call_month'], values='id', aggfunc='count'
+).reset_index()
+
+mins_per_month = calls_df.pivot_table(
+    index=['user_id', 'call_month'], values='duration', aggfunc='sum'
+).reset_index()
+
+total_per_user = (
+    users_df
+        .merge(calls_monthly,    on='user_id')
+        .merge(messages_monthly, on='user_id')
+        .merge(internet_monthly, on='user_id')
+)</code></pre>
+          </div>
+          <p class="code-block__caption" data-i18n="cs3.code1Caption">Per-user monthly aggregation — the building block. Minutes, messages and data sessions rolled up before the revenue function was applied.</p>
+
+          <div class="code-block">
+            <div class="code-block__head">
+              <span class="code-block__lang">Python · T-test</span>
+              <span>megaline.ipynb</span>
+            </div>
+<pre><code class="language-python">from scipy import stats
+
+surf     = total_per_user.query('plan_name == "Surf"')['total_income']
+ultimate = total_per_user.query('plan_name == "Ultimate"')['total_income']
+
+alpha  = 0.01
+result = stats.ttest_ind(surf, ultimate, equal_var=False)
+
+print(f"t = {result.statistic:.3f}, p = {result.pvalue:.4f}")
+if result.pvalue &lt; alpha:
+    print("Reject H0 — revenue differs between Surf and Ultimate.")</code></pre>
+          </div>
+          <p class="code-block__caption" data-i18n="cs3.code2Caption">Two-sample t-test at α = 0.01 between Surf and Ultimate monthly revenue. Equal variances were not assumed — Welch's correction was used.</p>
+
+          <div class="code-block">
+            <div class="code-block__head">
+              <span class="code-block__lang">Python · Region filter</span>
+              <span>megaline.ipynb</span>
+            </div>
+<pre><code class="language-python">mask_ny = total_per_user['city'].str.contains('NY-NJ', na=False)
+
+ny_nj_income    = total_per_user[mask_ny]['total_income']
+other_income    = total_per_user[~mask_ny]['total_income']
+
+stats.ttest_ind(ny_nj_income, other_income, equal_var=False)</code></pre>
+          </div>
+          <p class="code-block__caption" data-i18n="cs3.code3Caption">Region filter for the secondary test. Splitting NY-NJ subscribers from the rest let us evaluate whether geography moves revenue independently of plan.</p>
+        </div>
+      </article>
+
+      <article class="cs-block reveal">
+        <aside class="cs-block__label">+</aside>
+        <div>
+          <div class="accordion">
+            <details>
+              <summary data-i18n="cs.expandFull">See full analysis</summary>
+              <div class="accordion__body">
+                <p>The full notebook walks through monthly distributions for minutes, messages and data — each pair of distributions overlaps almost perfectly, which made the revenue difference all the more striking. The Welch t-test was preferred over Student's t because variances differed across plans (overage events introduce heavy right tails on Surf revenue).</p>
+                <br />
+                <p>A secondary segmentation by city revealed NY-NJ as a clear outlier in average revenue — likely driven by usage patterns specific to that metro area. The recommendation document for the commercial team included a sketch of a NY-NJ-specific test campaign.</p>
+              </div>
+            </details>
+            <details>
+              <summary data-i18n="cs.expandCode">See more code</summary>
+              <div class="accordion__body">
+                <div class="code-block">
+                  <div class="code-block__head"><span class="code-block__lang">Python · Revenue function</span><span>megaline.ipynb</span></div>
+<pre><code class="language-python">def monthly_revenue(row, tariff):
+    base = tariff['monthly_pay']
+    overage_min  = max(0, row['minutes']   - tariff['minutes_included'])  * tariff['min_overage']
+    overage_msg  = max(0, row['messages']  - tariff['messages_included']) * tariff['msg_overage']
+    overage_data = max(0, row['mb_used']   - tariff['mb_per_month'])      * tariff['mb_overage']
+    return base + overage_min + overage_msg + overage_data</code></pre>
+                </div>
+                <p class="code-block__caption">The revenue function — codifies plan economics into one defensible computation that becomes the response variable for every downstream test.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <article class="cs-block reveal">
+        <aside class="cs-block__label" data-i18n="cs.takeawayLabel">Final takeaway</aside>
+        <div>
+          <div class="takeaway">
+            <span class="eyebrow">Recommendation</span>
+            <p data-i18n="cs3.takeawayBody">Marketing dollars should chase Ultimate acquisitions — the plan generates significantly higher revenue per user, even though behaviour barely differs. Layer a NY-NJ-specific positioning on top, since that market behaves like its own segment.</p>
+          </div>
+
+          <div class="cluster" style="margin-top: var(--s-5);">
+            <a class="btn btn--primary" href="https://github.com/Sanlc10/megaline_customer_revenue_analysis" target="_blank" rel="noopener">
+              <span data-i18n="cs.viewRepo">View on GitHub</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="btn btn--ghost" href="/#contact" data-i18n="hero.ctaSecondary">Get in touch</a>
+          </div>
+        </div>
+      </article>
+
+      <nav class="cs-bottom-nav" aria-label="Case study navigation">
+        <a class="cs-bottom-nav__prev" href="/projects/video-game-sales">
+          <span class="arrow" aria-hidden="true">←</span>
+          <span><span data-i18n="cs.prev">Previous case study</span><br /><strong style="color: var(--ink); font-family: var(--font-display); font-style: italic; font-weight: 500;">02 — Ice Video Games</strong></span>
+        </a>
+        <a class="cs-bottom-nav__home" href="/" data-i18n="cs.backHome">Home</a>
+        <a class="cs-bottom-nav__next" href="/projects/showz-marketing-performance">
+          <span><span data-i18n="cs.next">Next case study</span><br /><strong style="color: var(--ink); font-family: var(--font-display); font-style: italic; font-weight: 500;">01 — Showz Marketing</strong></span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </nav>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <span data-i18n="footer.built">Built with HTML · CSS · JS</span> ·
+        <a class="link" href="https://github.com/Sanlc10" target="_blank" rel="noopener" data-i18n="footer.source">View source</a>
+      </div>
+      <div>&copy; <span id="year">2026</span> Santiago Lopez</div>
+    </div>
+  </footer>
+
+  <script src="/lib/i18n.js"></script>
+  <script src="/script.js"></script>
+  <script src="charts.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.hljs) document.querySelectorAll('pre code').forEach(el => window.hljs.highlightElement(el));
+    });
+  </script>
+</body>
+</html>

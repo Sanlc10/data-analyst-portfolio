@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAF8F3" />
+  <title>Showz — Marketing Performance Analysis · Santiago Lopez</title>
+  <meta name="description" content="Cohort analysis, LTV and ROMI evaluation across acquisition channels for an online ticket-sales platform." />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Showz — Marketing Performance Analysis" />
+  <meta property="og:description" content="Cohort analysis, LTV and ROMI evaluation across acquisition channels for an online ticket-sales platform." />
+  <meta property="og:image" content="/assets/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Chart.js (single bundle, no plugins needed) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+  <!-- Syntax highlighting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/atom-one-light.min.css" />
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
+
+  <!-- ====================== NAV ====================== -->
+  <header class="nav" id="nav" role="banner">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="/" aria-label="Santiago Lopez — Home">
+        <span>Santiago Lopez</span>
+        <small data-i18n="nav.role">Data Analyst</small>
+      </a>
+      <nav class="nav__menu" aria-label="Primary">
+        <a class="nav__link" href="/#projects" data-i18n="nav.projects">Projects</a>
+        <a class="nav__link" href="/#about" data-i18n="nav.about">About</a>
+        <a class="nav__link" href="/#contact" data-i18n="nav.contact">Contact</a>
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="is-active">EN</button>
+          <button type="button" data-lang="es">ES</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====================== BREADCRUMB ====================== -->
+  <div class="crumb">
+    <div class="container crumb__inner">
+      <a href="/" data-i18n="cs.backHome">Home</a>
+      <span class="crumb__sep">/</span>
+      <a href="/#projects" data-i18n="cs.backProjects">Projects</a>
+      <span class="crumb__sep">/</span>
+      <span class="crumb__current">01 · Showz</span>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ====================== CS HERO ====================== -->
+    <section class="cs-hero">
+      <div class="cs-hero__numeral" aria-hidden="true">01</div>
+      <div class="container">
+        <span class="eyebrow reveal" data-i18n="cs1.tag">Marketing Analytics · Cohort Analysis</span>
+        <h1 class="cs-hero__title reveal" data-delay="1" data-i18n="cs1.title">How we found the channels worth spending on.</h1>
+        <p class="cs-hero__intro reveal" data-delay="2" data-i18n="cs1.intro">An end-to-end audit of the user funnel and marketing spend for Showz, an online events ticketing platform. Goal: pinpoint which acquisition channels actually pay back, and which are quietly draining the budget.</p>
+
+        <dl class="cs-facts reveal" data-delay="3">
+          <div>
+            <dt data-i18n="cs.factDataset">Dataset</dt>
+            <dd>3 tables · 2017–18</dd>
+          </div>
+          <div>
+            <dt data-i18n="cs.factTools">Tools</dt>
+            <dd>Python · Pandas · SciPy</dd>
+          </div>
+          <div>
+            <dt data-i18n="cs.factDomain">Domain</dt>
+            <dd>Marketing Analytics</dd>
+          </div>
+          <div>
+            <dt data-i18n="cs.factYear">Year</dt>
+            <dd>2025</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ====================== ARTICLE BODY ====================== -->
+    <section class="container cs-body">
+
+      <!-- Business Context -->
+      <article class="cs-block dropcap reveal">
+        <aside class="cs-block__label" data-i18n="cs.contextLabel">Business context</aside>
+        <div>
+          <h2 data-i18n="cs1.contextTitle">A ticketing platform with a marketing problem.</h2>
+          <p data-i18n="cs1.contextP1">Showz operates an online events ticketing marketplace. Like most early-growth platforms, they had a clear top of funnel but blurry attribution downstream: marketing was spending across multiple acquisition channels, but no one could confidently answer which channels were generating profitable customers — and which were just buying traffic.</p>
+          <p data-i18n="cs1.contextP2">The brief was deliberately open: build the lens through which Showz can evaluate marketing performance, end to end. That meant going from raw event logs all the way to a defensible recommendation on where the next marketing dollar should go.</p>
+        </div>
+      </article>
+
+      <!-- Methodology -->
+      <article class="cs-block reveal">
+        <aside class="cs-block__label" data-i18n="cs.methodLabel">Methodology</aside>
+        <div>
+          <h2 data-i18n="cs1.methodTitle">A funnel-to-finance pipeline.</h2>
+          <div class="method-steps">
+            <div class="method-step">
+              <h4 data-i18n="cs1.m1Title">Data cleaning</h4>
+              <p data-i18n="cs1.m1Body">Standardised three datasets — visits, orders and ad costs. Normalised datetime fields and added month/week derived features.</p>
+            </div>
+            <div class="method-step">
+              <h4 data-i18n="cs1.m2Title">Engagement metrics</h4>
+              <p data-i18n="cs1.m2Body">Built DAU, WAU and MAU. Layered session length and conversion windows on top.</p>
+            </div>
+            <div class="method-step">
+              <h4 data-i18n="cs1.m3Title">Cohort analysis</h4>
+              <p data-i18n="cs1.m3Body">Cohorted users by acquisition month. Tracked time-to-first-purchase and retention curves per cohort.</p>
+            </div>
+            <div class="method-step">
+              <h4 data-i18n="cs1.m4Title">Unit economics</h4>
+              <p data-i18n="cs1.m4Body">Computed LTV, CAC and ROMI per acquisition source. Cross-referenced with channel cost data.</p>
+            </div>
+            <div class="method-step">
+              <h4 data-i18n="cs1.m5Title">Recommendation</h4>
+              <p data-i18n="cs1.m5Body">Ranked channels by LTV : CAC ratio and translated findings into a budget reallocation proposal.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Key Insights -->
+      <article class="cs-block reveal">
+        <aside class="cs-block__label" data-i18n="cs.insightsLabel">Key insights</aside>
+        <div>
+          <h2 data-i18n="cs1.insightsTitle">Three numbers that change the budget.</h2>
+
+          <div class="insights">
+            <div class="insight">
+              <div class="insight__number">23,228<small>MAU</small></div>
+              <div class="insight__label" data-i18n="cs1.i1Label">Daily active users · 2017–18 avg</div>
+              <p class="insight__body" data-i18n="cs1.i1Body">Average daily traffic of 908 users, scaling to 23,228 monthly active users — a healthy baseline against which channel performance can be measured.</p>
+            </div>
+            <div class="insight">
+              <div class="insight__number">2×<small>ROI</small></div>
+              <div class="insight__label" data-i18n="cs1.i2Label">Top channels by ROI</div>
+              <p class="insight__body" data-i18n="cs1.i2Body">Channels 2 and 1 generated the highest revenue despite receiving the lowest marketing spend — the inverse of what the team assumed.</p>
+            </div>
+            <div class="insight">
+              <div class="insight__number">&lt;$500K<small>rev.</small></div>
+              <div class="insight__label" data-i18n="cs1.i3Label">Channel 3 ROMI</div>
+              <p class="insight__body" data-i18n="cs1.i3Body">Channel 3 received the largest investment but returned under $500K in revenue. LTV did not recoup CAC inside any observable cohort window.</p>
+            </div>
+          </div>
+
+          <!-- Charts -->
+          <div class="chart-wrap">
+            <div class="chart-wrap__title" data-i18n="cs1.chart1Title">Traffic engagement, 2017 vs 2018</div>
+            <div class="chart-wrap__caption" data-i18n="cs1.chart1Caption">Comparison of average daily, weekly and monthly active users across two fiscal years — establishes the demand baseline.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartEngagement" aria-label="Bar chart comparing DAU, WAU and MAU between 2017 and 2018"></canvas></div>
+          </div>
+
+          <div class="chart-wrap">
+            <div class="chart-wrap__title" data-i18n="cs1.chart2Title">Revenue by marketing channel</div>
+            <div class="chart-wrap__caption" data-i18n="cs1.chart2Caption">Total revenue attributed to each acquisition source over the analysis window.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartRevenue" aria-label="Horizontal bar chart of revenue by marketing channel"></canvas></div>
+          </div>
+
+          <div class="chart-wrap">
+            <div class="chart-wrap__title" data-i18n="cs1.chart3Title">LTV vs CAC by acquisition source</div>
+            <div class="chart-wrap__caption" data-i18n="cs1.chart3Caption">A channel is healthy when LTV comfortably exceeds CAC. Channels 1 and 2 clear this bar; channel 3 inverts it.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartLtvCac" aria-label="Grouped bar chart of LTV and CAC by acquisition source"></canvas></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Code Highlights -->
+      <article class="cs-block reveal">
+        <aside class="cs-block__label" data-i18n="cs.codeLabel">Code highlights</aside>
+        <div>
+          <h2 data-i18n="cs1.codeTitle">The pieces of code I'm most proud of.</h2>
+
+          <div class="code-block">
+            <div class="code-block__head">
+              <span class="code-block__lang">Python · Cohort</span>
+              <span>showz.ipynb</span>
+            </div>
+<pre><code class="language-python">first_visits = visits_df.groupby('uid')['session_date'].min().reset_index()
+first_visits['cohort_month'] = first_visits['first_visit'].dt.to_period('M')
+
+first_orders = orders_df.groupby('uid')['order_date'].min().reset_index()
+
+cohort_revenue = (
+    orders.groupby(['cohort_month', 'cohort_index'])['revenue']
+          .sum()
+          .reset_index()
+)
+ltv_cumulative = ltv.cumsum(axis=1)</code></pre>
+          </div>
+          <p class="code-block__caption" data-i18n="cs1.code1Caption">Cohort assignment — collapsing every user into the month they first visited, which anchors all downstream retention analysis.</p>
+
+          <div class="code-block">
+            <div class="code-block__head">
+              <span class="code-block__lang">Python · LTV</span>
+              <span>showz.ipynb</span>
+            </div>
+<pre><code class="language-python">revenue_per_source = (
+    merged_df.groupby('source_id')['revenue']
+             .sum()
+             .reset_index()
+)
+
+ltv_by_source = revenue_per_source.merge(customers_by_source, on='source_id')
+ltv_by_source['ltv'] = ltv_by_source['total_revenue'] / ltv_by_source['n_clients']</code></pre>
+          </div>
+          <p class="code-block__caption" data-i18n="cs1.code2Caption">LTV per acquisition source — a join across orders and acquisition metadata, aggregated to a per-source view of customer value.</p>
+
+          <div class="code-block">
+            <div class="code-block__head">
+              <span class="code-block__lang">Python · Engagement</span>
+              <span>showz.ipynb</span>
+            </div>
+<pre><code class="language-python">visits_dau = visits_df.groupby('session_date')['uid'].nunique().mean()
+visits_wau = visits_df.groupby(['session_year', 'session_week']) \
+                      .agg({'uid': 'nunique'}).mean()
+visits_mau = visits_df.groupby(['session_year', 'session_month']) \
+                      .agg({'uid': 'nunique'}).mean()</code></pre>
+          </div>
+          <p class="code-block__caption" data-i18n="cs1.code3Caption">Engagement scaffolding — single-call DAU, WAU and MAU that fed almost every downstream chart.</p>
+        </div>
+      </article>
+
+      <!-- Expandable: full analysis -->
+      <article class="cs-block reveal">
+        <aside class="cs-block__label">+</aside>
+        <div>
+          <div class="accordion">
+            <details>
+              <summary data-i18n="cs.expandFull">See full analysis</summary>
+              <div class="accordion__body">
+                <p>Beyond the headline insights, the full notebook walks through cohort retention curves, time-to-first-purchase distributions per channel, average session length trends, device-segment analysis (mobile vs desktop) and a region-level breakdown of revenue. Each layer reinforced the same conclusion: channel quality, not channel volume, was the lever to pull. Cohorts acquired through channels 1 and 2 also exhibited shorter time-to-first-purchase, suggesting higher intent.</p>
+                <br />
+                <p>The repository on GitHub contains the full notebook with all intermediate charts, statistical checks, and the supplementary recommendation document handed to the marketing team.</p>
+              </div>
+            </details>
+            <details>
+              <summary data-i18n="cs.expandCode">See more code</summary>
+              <div class="accordion__body">
+                <div class="code-block">
+                  <div class="code-block__head"><span class="code-block__lang">Python · ROMI</span><span>showz.ipynb</span></div>
+<pre><code class="language-python">costs_per_source = costs_df.groupby('source_id')['costs'].sum().reset_index()
+romi = ltv_by_source.merge(costs_per_source, on='source_id')
+romi['romi'] = (romi['total_revenue'] - romi['costs']) / romi['costs']</code></pre>
+                </div>
+                <p class="code-block__caption">ROMI per source — turned the LTV and CAC components into a single profitability score per acquisition channel.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- Final Takeaway -->
+      <article class="cs-block reveal">
+        <aside class="cs-block__label" data-i18n="cs.takeawayLabel">Final takeaway</aside>
+        <div>
+          <div class="takeaway">
+            <span class="eyebrow">Recommendation</span>
+            <p data-i18n="cs1.takeawayBody">If I were sitting on Showz's marketing team, I'd reallocate roughly 30% of the channel-3 budget toward channels 1 and 2 — and revisit channel 3's targeting before any further investment. The cohort data suggests the audience quality, not the volume, is the issue.</p>
+          </div>
+
+          <div class="cluster" style="margin-top: var(--s-5);">
+            <a class="btn btn--primary" href="https://github.com/Sanlc10/showz_marketing_performance_analysis" target="_blank" rel="noopener">
+              <span data-i18n="cs.viewRepo">View on GitHub</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="btn btn--ghost" href="/#contact" data-i18n="hero.ctaSecondary">Get in touch</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bottom nav between case studies -->
+      <nav class="cs-bottom-nav" aria-label="Case study navigation">
+        <a class="cs-bottom-nav__home" href="/">← <span data-i18n="cs.backHome">Home</span></a>
+        <span></span>
+        <a class="cs-bottom-nav__next" href="/projects/video-game-sales">
+          <span><span data-i18n="cs.next">Next case study</span><br /><strong style="color: var(--ink); font-family: var(--font-display); font-style: italic; font-weight: 500;">02 — Ice Video Games</strong></span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </nav>
+
+    </section>
+
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <span data-i18n="footer.built">Built with HTML · CSS · JS</span> ·
+        <a class="link" href="https://github.com/Sanlc10" target="_blank" rel="noopener" data-i18n="footer.source">View source</a>
+      </div>
+      <div>&copy; <span id="year">2026</span> Santiago Lopez</div>
+    </div>
+  </footer>
+
+  <script src="/lib/i18n.js"></script>
+  <script src="/script.js"></script>
+  <script src="charts.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.hljs) {
+        document.querySelectorAll('pre code').forEach(el => window.hljs.highlightElement(el));
+      }
+    });
+  </script>
+</body>
+</html>

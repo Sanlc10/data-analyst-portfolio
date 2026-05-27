@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAF8F3" />
+  <title>Ice — Video Game Sales Analysis · Santiago Lopez</title>
+  <meta name="description" content="EDA and statistical testing across 16,715 video game titles to inform a 2017 marketing campaign." />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Ice — Video Game Sales Analysis" />
+  <meta property="og:description" content="EDA and statistical testing across 16,715 video game titles to inform a 2017 marketing campaign." />
+  <meta property="og:image" content="/assets/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/atom-one-light.min.css" />
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
+
+  <header class="nav" id="nav" role="banner">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="/" aria-label="Santiago Lopez — Home">
+        <span>Santiago Lopez</span>
+        <small data-i18n="nav.role">Data Analyst</small>
+      </a>
+      <nav class="nav__menu" aria-label="Primary">
+        <a class="nav__link" href="/#projects" data-i18n="nav.projects">Projects</a>
+        <a class="nav__link" href="/#about" data-i18n="nav.about">About</a>
+        <a class="nav__link" href="/#contact" data-i18n="nav.contact">Contact</a>
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="is-active">EN</button>
+          <button type="button" data-lang="es">ES</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="crumb">
+    <div class="container crumb__inner">
+      <a href="/" data-i18n="cs.backHome">Home</a>
+      <span class="crumb__sep">/</span>
+      <a href="/#projects" data-i18n="cs.backProjects">Projects</a>
+      <span class="crumb__sep">/</span>
+      <span class="crumb__current">02 · Ice</span>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section class="cs-hero">
+      <div class="cs-hero__numeral" aria-hidden="true">02</div>
+      <div class="container">
+        <span class="eyebrow reveal" data-i18n="cs2.tag">EDA · Hypothesis Testing · 16,715 records</span>
+        <h1 class="cs-hero__title reveal" data-delay="1" data-i18n="cs2.title">What actually predicts a hit video game.</h1>
+        <p class="cs-hero__intro reveal" data-delay="2" data-i18n="cs2.intro">For Ice, a global video game retailer, I worked through 16,715 titles to understand what drives commercial success. The answer turned out to be less about reviews and more about platform timing and regional fit.</p>
+
+        <dl class="cs-facts reveal" data-delay="3">
+          <div>
+            <dt data-i18n="cs.factDataset">Dataset</dt>
+            <dd>16,715 games</dd>
+          </div>
+          <div>
+            <dt data-i18n="cs.factTools">Tools</dt>
+            <dd>Python · Pandas · SciPy</dd>
+          </div>
+          <div>
+            <dt data-i18n="cs.factDomain">Domain</dt>
+            <dd>Retail · Gaming</dd>
+          </div>
+          <div>
+            <dt data-i18n="cs.factYear">Year</dt>
+            <dd>2025</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="container cs-body">
+
+      <article class="cs-block dropcap reveal">
+        <aside class="cs-block__label" data-i18n="cs.contextLabel">Business context</aside>
+        <div>
+          <h2 data-i18n="cs2.contextTitle">Planning a 2017 campaign with data through 2016.</h2>
+          <p data-i18n="cs2.contextP1">Ice is a fictional online retailer with global reach across North America, Europe and Japan. Marketing wanted to plan a 2017 ad campaign and asked a deceptively simple question: which games, on which platforms, in which regions, are worth promoting?</p>
+          <p data-i18n="cs2.contextP2">The dataset spanned decades of releases, so the work started with a hard editorial decision — which years matter for a forward-looking campaign? After charting release volume over time, I anchored the analysis on the most recent five-year window where platform mixes still resembled the current landscape.</p>
+        </div>
+      </article>
+
+      <article class="cs-block reveal">
+        <aside class="cs-block__label" data-i18n="cs.methodLabel">Methodology</aside>
+        <div>
+          <h2 data-i18n="cs2.methodTitle">From sixteen-thousand rows to a campaign brief.</h2>
+          <div class="method-steps">
+            <div class="method-step">
+              <h4 data-i18n="cs2.m1Title">Cleaning</h4>
+              <p data-i18n="cs2.m1Body">Resolved duplicates, type casts and a tricky "TBD" sentinel in user-score before aggregating anything.</p>
+            </div>
+            <div class="method-step">
+              <h4 data-i18n="cs2.m2Title">Era selection</h4>
+              <p data-i18n="cs2.m2Body">Used release-volume distributions to defend a reduced time window — the same data, asked a smarter question.</p>
+            </div>
+            <div class="method-step">
+              <h4 data-i18n="cs2.m3Title">Platform & genre EDA</h4>
+              <p data-i18n="cs2.m3Body">Compared revenue and unit sales across platforms and genres, both globally and by region.</p>
+            </div>
+            <div class="method-step">
+              <h4 data-i18n="cs2.m4Title">Hypothesis testing</h4>
+              <p data-i18n="cs2.m4Body">Two-sample t-tests on user scores across platforms (Xbox One vs PC) and across genres (Action vs Sports).</p>
+            </div>
+            <div class="method-step">
+              <h4 data-i18n="cs2.m5Title">Regional profiling</h4>
+              <p data-i18n="cs2.m5Body">Built per-region preference profiles for top platforms and genres — Japan looked nothing like NA or EU.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cs-block reveal">
+        <aside class="cs-block__label" data-i18n="cs.insightsLabel">Key insights</aside>
+        <div>
+          <h2 data-i18n="cs2.insightsTitle">Three findings worth a campaign.</h2>
+
+          <div class="insights">
+            <div class="insight">
+              <div class="insight__number">PS<small>line</small></div>
+              <div class="insight__label" data-i18n="cs2.i1Label">Top revenue platforms</div>
+              <p class="insight__body" data-i18n="cs2.i1Body">PlayStation 2, PlayStation 3 and Xbox 360 dominate aggregate sales — but regional preferences diverge sharply, particularly in Japan where Nintendo platforms lead.</p>
+            </div>
+            <div class="insight">
+              <div class="insight__number">3<small>genres</small></div>
+              <div class="insight__label" data-i18n="cs2.i2Label">Top revenue genres</div>
+              <p class="insight__body" data-i18n="cs2.i2Body">Action, Sports and Shooter generate the highest revenue in NA and EU. Japan flips the order with Role-Playing taking the top.</p>
+            </div>
+            <div class="insight">
+              <div class="insight__number">≈0.03<small>r</small></div>
+              <div class="insight__label" data-i18n="cs2.i3Label">User-rating ↔ sales correlation</div>
+              <p class="insight__body" data-i18n="cs2.i3Body">Pearson correlation of roughly 0.03 between user ratings and sales — statistically indistinguishable from zero. Reviews do not drive volume.</p>
+            </div>
+          </div>
+
+          <div class="chart-wrap">
+            <div class="chart-wrap__title" data-i18n="cs2.chart1Title">Games released per year</div>
+            <div class="chart-wrap__caption" data-i18n="cs2.chart1Caption">Annual release volume across the dataset, used to argue for a focused recent-era analysis window.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartReleases" aria-label="Bar chart of games released per year"></canvas></div>
+          </div>
+
+          <div class="chart-wrap">
+            <div class="chart-wrap__title" data-i18n="cs2.chart2Title">Top platforms by global revenue</div>
+            <div class="chart-wrap__caption" data-i18n="cs2.chart2Caption">Aggregate revenue per platform — the foundation of the platform-prioritisation argument.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartPlatforms" aria-label="Horizontal bar chart of platforms by revenue"></canvas></div>
+          </div>
+
+          <div class="chart-wrap">
+            <div class="chart-wrap__title" data-i18n="cs2.chart3Title">User rating vs sales</div>
+            <div class="chart-wrap__caption" data-i18n="cs2.chart3Caption">Scatter of user score against units sold. The near-flat trend line is the punchline.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartScatter" aria-label="Scatter plot of user rating versus sales"></canvas></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cs-block reveal">
+        <aside class="cs-block__label" data-i18n="cs.codeLabel">Code highlights</aside>
+        <div>
+          <h2 data-i18n="cs2.codeTitle">Statistical work, made tangible.</h2>
+
+          <div class="code-block">
+            <div class="code-block__head">
+              <span class="code-block__lang">Python · Filter + Clean</span>
+              <span>video_games.ipynb</span>
+            </div>
+<pre><code class="language-python">vg_from_2013 = video_games[video_games['year_of_release'] &gt;= 2013].copy()
+
+xone_users = vg_from_2013.query('platform == "XOne"')
+pc_users   = vg_from_2013.query('platform == "PC"')
+
+xone_user_score = pd.to_numeric(xone_users['user_score'], errors='coerce').dropna()
+pc_user_score   = pd.to_numeric(pc_users['user_score'],   errors='coerce').dropna()</code></pre>
+          </div>
+          <p class="code-block__caption" data-i18n="cs2.code1Caption">Filtered the dataset to the modern era and converted the messy user-score column into numerics before testing.</p>
+
+          <div class="code-block">
+            <div class="code-block__head">
+              <span class="code-block__lang">Python · T-test</span>
+              <span>video_games.ipynb</span>
+            </div>
+<pre><code class="language-python">from scipy import stats
+
+result = stats.ttest_ind(xone_user_score, pc_user_score, equal_var=False)
+alpha  = 0.05
+
+print(f"t = {result.statistic:.3f}, p = {result.pvalue:.4f}")
+if result.pvalue &lt; alpha:
+    print("Reject H0 — user scores differ between Xbox One and PC.")
+else:
+    print("Fail to reject H0 — no significant difference.")</code></pre>
+          </div>
+          <p class="code-block__caption" data-i18n="cs2.code2Caption">Two-sample t-test for platform user scores. The test answered: are Xbox One and PC scores drawn from the same population?</p>
+
+          <div class="code-block">
+            <div class="code-block__head">
+              <span class="code-block__lang">Python · Groupby</span>
+              <span>video_games.ipynb</span>
+            </div>
+<pre><code class="language-python">ps2_sales = (
+    video_games[video_games['platform'] == 'PS2']
+        .groupby('year_of_release')['total_sales']
+        .sum()
+)
+ps2_sales.plot(kind='bar',
+               title='PlayStation 2 — sales per year',
+               xlabel='Year',
+               ylabel='Total revenue (USD millions)')</code></pre>
+          </div>
+          <p class="code-block__caption" data-i18n="cs2.code3Caption">A reusable groupby-and-plot pattern I leaned on across the EDA. Small, but it saved hours.</p>
+        </div>
+      </article>
+
+      <article class="cs-block reveal">
+        <aside class="cs-block__label">+</aside>
+        <div>
+          <div class="accordion">
+            <details>
+              <summary data-i18n="cs.expandFull">See full analysis</summary>
+              <div class="accordion__body">
+                <p>The full notebook adds the second hypothesis test (Action vs Sports user scores) and a deeper regional cut showing how the genre top-3 reorders dramatically between Japan and the West. There's also a critic-score vs user-score comparison, which reveals that critic scores correlate marginally better with sales than user reviews do — relevant if marketing wants a leading indicator.</p>
+                <br />
+                <p>A platform lifecycle chart (per-platform sales over years since launch) provided the strongest evidence for the recommendation to focus on PS4 and Xbox One for 2017 — both were entering their commercial peak years.</p>
+              </div>
+            </details>
+            <details>
+              <summary data-i18n="cs.expandCode">See more code</summary>
+              <div class="accordion__body">
+                <div class="code-block">
+                  <div class="code-block__head"><span class="code-block__lang">Python · Correlation</span><span>video_games.ipynb</span></div>
+<pre><code class="language-python">recent = vg_from_2013.dropna(subset=['user_score', 'total_sales']).copy()
+recent['user_score'] = pd.to_numeric(recent['user_score'], errors='coerce')
+corr = recent[['user_score', 'total_sales']].corr().iloc[0, 1]
+print(f"Pearson r between user_score and total_sales: {corr:.3f}")</code></pre>
+                </div>
+                <p class="code-block__caption">Computed Pearson correlation between user reviews and unit sales — the headline near-zero number that informed the campaign-creative recommendation.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <article class="cs-block reveal">
+        <aside class="cs-block__label" data-i18n="cs.takeawayLabel">Final takeaway</aside>
+        <div>
+          <div class="takeaway">
+            <span class="eyebrow">Recommendation</span>
+            <p data-i18n="cs2.takeawayBody">For 2017, the campaign should overweight PS4 / Xbox One in NA and EU while running a separate Nintendo-focused track for Japan. Marketing should not anchor creative on user reviews — they don't predict sales, and the budget should chase platform reach and critical reception instead.</p>
+          </div>
+
+          <div class="cluster" style="margin-top: var(--s-5);">
+            <a class="btn btn--primary" href="https://github.com/Sanlc10/video-game-sales-analysis" target="_blank" rel="noopener">
+              <span data-i18n="cs.viewRepo">View on GitHub</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="btn btn--ghost" href="/#contact" data-i18n="hero.ctaSecondary">Get in touch</a>
+          </div>
+        </div>
+      </article>
+
+      <nav class="cs-bottom-nav" aria-label="Case study navigation">
+        <a class="cs-bottom-nav__prev" href="/projects/showz-marketing-performance">
+          <span class="arrow" aria-hidden="true">←</span>
+          <span><span data-i18n="cs.prev">Previous case study</span><br /><strong style="color: var(--ink); font-family: var(--font-display); font-style: italic; font-weight: 500;">01 — Showz Marketing</strong></span>
+        </a>
+        <a class="cs-bottom-nav__home" href="/" data-i18n="cs.backHome">Home</a>
+        <a class="cs-bottom-nav__next" href="/projects/megaline-revenue">
+          <span><span data-i18n="cs.next">Next case study</span><br /><strong style="color: var(--ink); font-family: var(--font-display); font-style: italic; font-weight: 500;">03 — Megaline Revenue</strong></span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </nav>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <span data-i18n="footer.built">Built with HTML · CSS · JS</span> ·
+        <a class="link" href="https://github.com/Sanlc10" target="_blank" rel="noopener" data-i18n="footer.source">View source</a>
+      </div>
+      <div>&copy; <span id="year">2026</span> Santiago Lopez</div>
+    </div>
+  </footer>
+
+  <script src="/lib/i18n.js"></script>
+  <script src="/script.js"></script>
+  <script src="charts.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.hljs) document.querySelectorAll('pre code').forEach(el => window.hljs.highlightElement(el));
+    });
+  </script>
+</body>
+</html>
