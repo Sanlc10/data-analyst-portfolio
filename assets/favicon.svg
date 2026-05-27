@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#F4ECE3"/>
-  <circle cx="32" cy="32" r="22" fill="#FF6B47" stroke="#0F0F0F" stroke-width="3"/>
+  <circle cx="32" cy="32" r="28" fill="#FF6B47" stroke="#0F0F0F" stroke-width="4"/>
   <text x="50%" y="50%"
         text-anchor="middle"
         dominant-baseline="central"
         font-family="'Cabinet Grotesk', 'Helvetica Neue', Arial, sans-serif"
-        font-weight="800"
-        font-size="22"
+        font-weight="900"
+        font-size="26"
         fill="#FFFFFF"
-        letter-spacing="-1.2"
+        letter-spacing="-1.4"
         transform="rotate(-4 32 32)">SL</text>
 </svg>
