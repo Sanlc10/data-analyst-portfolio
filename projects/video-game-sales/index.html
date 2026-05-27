@@ -137,38 +137,38 @@
 
           <div class="insights">
             <div class="insight">
-              <div class="insight__number">PS<small>line</small></div>
-              <div class="insight__label" data-i18n="cs2.i1Label">Top revenue platforms</div>
-              <p class="insight__body" data-i18n="cs2.i1Body">PlayStation 2, PlayStation 3 and Xbox 360 dominate aggregate sales — but regional preferences diverge sharply, particularly in Japan where Nintendo platforms lead.</p>
+              <div class="insight__number">$314M<small>PS4</small></div>
+              <div class="insight__label" data-i18n="cs2.i1Label">Modern-era platform leader</div>
+              <p class="insight__body" data-i18n="cs2.i1Body">Inside the analyst-defined 2013–2016 window, PS4 leads with $314.14M in total sales — almost double the next contender (PS3 at $181.43M), with XOne ($159.32M) and 3DS ($143.25M) rounding out the campaign-relevant set.</p>
             </div>
             <div class="insight">
-              <div class="insight__number">3<small>genres</small></div>
-              <div class="insight__label" data-i18n="cs2.i2Label">Top revenue genres</div>
-              <p class="insight__body" data-i18n="cs2.i2Body">Action, Sports and Shooter generate the highest revenue in NA and EU. Japan flips the order with Role-Playing taking the top.</p>
+              <div class="insight__number">≈ 0<small>p</small></div>
+              <div class="insight__label" data-i18n="cs2.i2Label">Action vs Sports — user scores differ</div>
+              <p class="insight__body" data-i18n="cs2.i2Body">Two-sample t-test (α = 0.01) on Action vs Sports user scores returns p ≈ 1.4 × 10⁻²⁰ — reject H₀. Genres are perceived differently by users. The Xbox One vs PC test (p = 0.148) instead fails to reject — platform alone doesn't move user scores.</p>
             </div>
             <div class="insight">
-              <div class="insight__number">≈0.03<small>r</small></div>
+              <div class="insight__number">−0.032<small>r</small></div>
               <div class="insight__label" data-i18n="cs2.i3Label">User-rating ↔ sales correlation</div>
-              <p class="insight__body" data-i18n="cs2.i3Body">Pearson correlation of roughly 0.03 between user ratings and sales — statistically indistinguishable from zero. Reviews do not drive volume.</p>
+              <p class="insight__body" data-i18n="cs2.i3Body">Pearson correlation of −0.032 between user score and total sales — statistically indistinguishable from zero. Critic score, by contrast, shows a moderate +0.41. Reviews matter to critics; volume follows the press, not the players.</p>
             </div>
           </div>
 
           <div class="chart-wrap">
             <div class="chart-wrap__title" data-i18n="cs2.chart1Title">Games released per year</div>
-            <div class="chart-wrap__caption" data-i18n="cs2.chart1Caption">Annual release volume across the dataset, used to argue for a focused recent-era analysis window.</div>
+            <div class="chart-wrap__caption" data-i18n="cs2.chart1Caption">Annual release volume from 1980 to 2016. The 2013+ window (highlighted) is the focused analysis era used to plan the 2017 campaign — platforms released in 2013 will be at or near their commercial peak.</div>
             <div class="chart-canvas-wrap"><canvas id="chartReleases" aria-label="Bar chart of games released per year"></canvas></div>
           </div>
 
           <div class="chart-wrap">
-            <div class="chart-wrap__title" data-i18n="cs2.chart2Title">Top platforms by global revenue</div>
-            <div class="chart-wrap__caption" data-i18n="cs2.chart2Caption">Aggregate revenue per platform — the foundation of the platform-prioritisation argument.</div>
-            <div class="chart-canvas-wrap"><canvas id="chartPlatforms" aria-label="Horizontal bar chart of platforms by revenue"></canvas></div>
+            <div class="chart-wrap__title" data-i18n="cs2.chart2Title">Top platforms by revenue — 2013–2016</div>
+            <div class="chart-wrap__caption" data-i18n="cs2.chart2Caption">Aggregate sales per platform within the modern-era window. PS4 leads with $314M; PS3, XOne and 3DS form the rest of the campaign-relevant set.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartPlatforms" aria-label="Horizontal bar chart of platforms by modern-era revenue"></canvas></div>
           </div>
 
           <div class="chart-wrap">
-            <div class="chart-wrap__title" data-i18n="cs2.chart3Title">User rating vs sales</div>
-            <div class="chart-wrap__caption" data-i18n="cs2.chart3Caption">Scatter of user score against units sold. The near-flat trend line is the punchline.</div>
-            <div class="chart-canvas-wrap"><canvas id="chartScatter" aria-label="Scatter plot of user rating versus sales"></canvas></div>
+            <div class="chart-wrap__title" data-i18n="cs2.chart3Title">User score vs sales</div>
+            <div class="chart-wrap__caption" data-i18n="cs2.chart3Caption">Scatter of user score against total sales. The trend line is essentially flat (r = −0.032) — the punchline of the entire analysis.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartScatter" aria-label="Scatter plot of user score versus sales"></canvas></div>
           </div>
         </div>
       </article>

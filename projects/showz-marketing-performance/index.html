@@ -147,37 +147,37 @@
           <div class="insights">
             <div class="insight">
               <div class="insight__number">23,228<small>MAU</small></div>
-              <div class="insight__label" data-i18n="cs1.i1Label">Daily active users · 2017–18 avg</div>
-              <p class="insight__body" data-i18n="cs1.i1Body">Average daily traffic of 908 users, scaling to 23,228 monthly active users — a healthy baseline against which channel performance can be measured.</p>
+              <div class="insight__label" data-i18n="cs1.i1Label">Platform engagement baseline</div>
+              <p class="insight__body" data-i18n="cs1.i1Body">Average of 23,228 monthly active users — a healthy demand baseline against which channel-level performance can be measured. Daily active users grew from 845 in 2017 to 997 in 2018.</p>
             </div>
             <div class="insight">
-              <div class="insight__number">2×<small>ROI</small></div>
-              <div class="insight__label" data-i18n="cs1.i2Label">Top channels by ROI</div>
-              <p class="insight__body" data-i18n="cs1.i2Body">Channels 2 and 1 generated the highest revenue despite receiving the lowest marketing spend — the inverse of what the team assumed.</p>
+              <div class="insight__number">110×<small>ROMI</small></div>
+              <div class="insight__label" data-i18n="cs1.i2Label">Source 1 — best return on spend</div>
+              <p class="insight__body" data-i18n="cs1.i2Body">Source 1 returns $110 for every $1 of marketing spend — driven by an LTV of $322 against a CAC of just $2.92. Source 2 is the close second (ROMI 62×).</p>
             </div>
             <div class="insight">
-              <div class="insight__number">&lt;$500K<small>rev.</small></div>
-              <div class="insight__label" data-i18n="cs1.i3Label">Channel 3 ROMI</div>
-              <p class="insight__body" data-i18n="cs1.i3Body">Channel 3 received the largest investment but returned under $500K in revenue. LTV did not recoup CAC inside any observable cohort window.</p>
+              <div class="insight__number">2.1×<small>ROMI</small></div>
+              <div class="insight__label" data-i18n="cs1.i3Label">Source 3 — where the budget went</div>
+              <p class="insight__body" data-i18n="cs1.i3Body">Source 3 received the largest marketing investment but returned only $2.10 per dollar spent — fifty times less efficient than Source 1. CAC ($10.21) is higher than LTV ($21.43) for most of the cohort window.</p>
             </div>
           </div>
 
           <!-- Charts -->
           <div class="chart-wrap">
-            <div class="chart-wrap__title" data-i18n="cs1.chart1Title">Traffic engagement, 2017 vs 2018</div>
-            <div class="chart-wrap__caption" data-i18n="cs1.chart1Caption">Comparison of average daily, weekly and monthly active users across two fiscal years — establishes the demand baseline.</div>
-            <div class="chart-canvas-wrap"><canvas id="chartEngagement" aria-label="Bar chart comparing DAU, WAU and MAU between 2017 and 2018"></canvas></div>
+            <div class="chart-wrap__title" data-i18n="cs1.chart1Title">Daily active users — 2017 vs 2018</div>
+            <div class="chart-wrap__caption" data-i18n="cs1.chart1Caption">Average daily active users grew from 845 (2017) to 997 (2018) — an 18% increase. Weekly and monthly averages: 5,716 WAU and 23,228 MAU.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartEngagement" aria-label="Bar chart of average DAU in 2017 vs 2018"></canvas></div>
           </div>
 
           <div class="chart-wrap">
-            <div class="chart-wrap__title" data-i18n="cs1.chart2Title">Revenue by marketing channel</div>
-            <div class="chart-wrap__caption" data-i18n="cs1.chart2Caption">Total revenue attributed to each acquisition source over the analysis window.</div>
-            <div class="chart-canvas-wrap"><canvas id="chartRevenue" aria-label="Horizontal bar chart of revenue by marketing channel"></canvas></div>
+            <div class="chart-wrap__title" data-i18n="cs1.chart2Title">Revenue by acquisition source</div>
+            <div class="chart-wrap__caption" data-i18n="cs1.chart2Caption">Total revenue attributed to each <code>source_id</code> over the analysis window. Source 7 (one customer, zero ad spend) is excluded.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartRevenue" aria-label="Horizontal bar chart of revenue by acquisition source"></canvas></div>
           </div>
 
           <div class="chart-wrap">
             <div class="chart-wrap__title" data-i18n="cs1.chart3Title">LTV vs CAC by acquisition source</div>
-            <div class="chart-wrap__caption" data-i18n="cs1.chart3Caption">A channel is healthy when LTV comfortably exceeds CAC. Channels 1 and 2 clear this bar; channel 3 inverts it.</div>
+            <div class="chart-wrap__caption" data-i18n="cs1.chart3Caption">Sources 1 and 2 deliver LTVs above $320 against CACs under $6. Source 3 is the only channel where CAC ($10.21) exceeds LTV ($21.43) at any observable cohort window.</div>
             <div class="chart-canvas-wrap"><canvas id="chartLtvCac" aria-label="Grouped bar chart of LTV and CAC by acquisition source"></canvas></div>
           </div>
         </div>

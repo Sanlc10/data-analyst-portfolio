@@ -137,38 +137,38 @@
 
           <div class="insights">
             <div class="insight">
-              <div class="insight__number">430.5<small>min</small></div>
-              <div class="insight__label" data-i18n="cs3.i1Label">Surf vs Ultimate · monthly minutes</div>
-              <p class="insight__body" data-i18n="cs3.i1Body">Behavioural metrics are almost indistinguishable: Surf users average 428.7 minutes per month, Ultimate users 430.5. Same with messages and data.</p>
+              <div class="insight__number">1.7<small>min</small></div>
+              <div class="insight__label" data-i18n="cs3.i1Label">Behaviour gap, Surf vs Ultimate</div>
+              <p class="insight__body" data-i18n="cs3.i1Body">Behavioural metrics are almost indistinguishable: Surf users average 428.75 minutes per month, Ultimate 430.45. Messages and data follow the same near-overlap.</p>
             </div>
             <div class="insight">
-              <div class="insight__number">&lt;0.01<small>p</small></div>
-              <div class="insight__label" data-i18n="cs3.i2Label">p-value, plan revenue test</div>
-              <p class="insight__body" data-i18n="cs3.i2Body">Despite near-identical usage, monthly revenue differs significantly between plans (p &lt; 0.01). Pricing structure, not behaviour, is doing the work.</p>
+              <div class="insight__number">1.92×<small>ARPU</small></div>
+              <div class="insight__label" data-i18n="cs3.i2Label">Ultimate generates 92% more per user</div>
+              <p class="insight__body" data-i18n="cs3.i2Body">Per-user monthly revenue: Surf $37.64 vs Ultimate $72.31. Two-sample Welch t-test at α = 0.01 returns p ≈ 7.55×10⁻²⁰⁶ — H₀ is rejected with overwhelming evidence.</p>
             </div>
             <div class="insight">
-              <div class="insight__number">NY-NJ<small>diff</small></div>
-              <div class="insight__label" data-i18n="cs3.i3Label">Regional revenue gap</div>
-              <p class="insight__body" data-i18n="cs3.i3Body">NY-NJ subscribers show a revenue distribution distinct enough to reject equality with the rest of the country — a clear case for geo-targeted pricing.</p>
+              <div class="insight__number">+$7.1K<small>total</small></div>
+              <div class="insight__label" data-i18n="cs3.i3Label">The volume paradox</div>
+              <p class="insight__body" data-i18n="cs3.i3Body">Total revenue tells the opposite story: Surf earned $59,200.50 against Ultimate's $52,066.00 — a $7,134 advantage. More users + a constant stream of overage charges flip the per-user picture upside down.</p>
             </div>
           </div>
 
           <div class="chart-wrap">
-            <div class="chart-wrap__title" data-i18n="cs3.chart1Title">Call minutes — Surf vs Ultimate</div>
-            <div class="chart-wrap__caption" data-i18n="cs3.chart1Caption">Distribution of monthly call minutes for both plans. Centres are nearly identical; the tails tell the difference.</div>
+            <div class="chart-wrap__title" data-i18n="cs3.chart1Title">Monthly call minutes — Surf vs Ultimate</div>
+            <div class="chart-wrap__caption" data-i18n="cs3.chart1Caption">Distribution of monthly minutes per user. Means: Surf 428.75 · Ultimate 430.45. Standard deviations are similar (Surf 234.38 · Ultimate 240.34) — the two cohorts essentially overlap.</div>
             <div class="chart-canvas-wrap"><canvas id="chartMinutes" aria-label="Distribution of monthly call minutes per plan"></canvas></div>
           </div>
 
           <div class="chart-wrap">
-            <div class="chart-wrap__title" data-i18n="cs3.chart2Title">Monthly revenue by plan</div>
-            <div class="chart-wrap__caption" data-i18n="cs3.chart2Caption">Average revenue per user, month over month. Ultimate consistently leads — and the gap is statistically real.</div>
-            <div class="chart-canvas-wrap"><canvas id="chartRevenue" aria-label="Monthly revenue line chart per plan"></canvas></div>
+            <div class="chart-wrap__title" data-i18n="cs3.chart2Title">Average revenue per user — by plan</div>
+            <div class="chart-wrap__caption" data-i18n="cs3.chart2Caption">Mean monthly revenue per subscriber. Surf clusters around $37.64 with a long right tail driven by overages; Ultimate clusters around $72.31 close to its base rate.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartRevenue" aria-label="Average per-user monthly revenue by plan"></canvas></div>
           </div>
 
           <div class="chart-wrap">
-            <div class="chart-wrap__title" data-i18n="cs3.chart3Title">Revenue by region</div>
-            <div class="chart-wrap__caption" data-i18n="cs3.chart3Caption">Comparison of average revenue between NY-NJ subscribers and the rest of the customer base.</div>
-            <div class="chart-canvas-wrap"><canvas id="chartRegion" aria-label="Average revenue by region bar chart"></canvas></div>
+            <div class="chart-wrap__title" data-i18n="cs3.chart3Title">Total aggregate revenue — the volume paradox</div>
+            <div class="chart-wrap__caption" data-i18n="cs3.chart3Caption">When every user-month is summed up across 2018, Surf actually outearns Ultimate: $59,200.50 vs $52,066.00. The plan with the lower per-user ARPU wins on total revenue thanks to a larger subscriber base and persistent overage charges.</div>
+            <div class="chart-canvas-wrap"><canvas id="chartRegion" aria-label="Total aggregate revenue per plan"></canvas></div>
           </div>
         </div>
       </article>

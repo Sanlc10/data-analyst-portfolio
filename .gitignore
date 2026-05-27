@@ -7,3 +7,6 @@ node_modules/
 .idea/
 .vscode/
 Thumbs.db
+
+# Source notebooks kept locally for reference, not deployed
+*.ipynb
