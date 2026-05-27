@@ -2,7 +2,9 @@
    Santiago Lopez — Portfolio · global script
    - Nav blur on scroll
    - IntersectionObserver reveal animations
+   - Animated counters on stat strip
    - Year stamp in footer
+   - Smooth anchor scroll
    ============================================================ */
 
 (function () {
@@ -16,14 +18,13 @@
   const nav = document.getElementById('nav');
   if (nav) {
     const onScroll = () => {
-      const scrolled = window.scrollY > 24;
-      nav.classList.toggle('is-scrolled', scrolled);
+      nav.classList.toggle('is-scrolled', window.scrollY > 24);
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* ---------- Reveal on scroll ---------- */
+  /* ---------- Reveal animations on scroll ---------- */
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {
     const io = new IntersectionObserver((entries) => {
@@ -39,7 +40,42 @@
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
 
-  /* ---------- Smooth anchor scroll (respect reduced-motion) ---------- */
+  /* ---------- Animated counters ---------- */
+  const counters = document.querySelectorAll('[data-count-to]');
+  if ('IntersectionObserver' in window && counters.length) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const formatNum = (n) => Math.round(n).toLocaleString('en-US');
+
+    const animate = (el) => {
+      const target = parseFloat(el.dataset.countTo) || 0;
+      if (reduceMotion) {
+        el.textContent = formatNum(target);
+        return;
+      }
+      const duration = Math.min(1800, 800 + Math.log10(Math.max(target, 10)) * 200);
+      const start = performance.now();
+      const tick = (now) => {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = formatNum(target * eased);
+        if (t < 1) requestAnimationFrame(tick);
+        else el.textContent = formatNum(target);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          counterIO.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.3 });
+    counters.forEach(el => counterIO.observe(el));
+  }
+
+  /* ---------- Smooth anchor scroll ---------- */
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion) {
     document.querySelectorAll('a[href^="#"]').forEach(link => {

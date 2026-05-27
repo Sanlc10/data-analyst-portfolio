@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#FAF8F3" />
+  <meta name="theme-color" content="#F4ECE3" />
   <title>Santiago Lopez — Data Analyst &amp; Business Intelligence</title>
   <meta name="description" content="Data Analyst specialising in business intelligence and AI automation. Case studies in marketing analytics, statistical testing and revenue modelling." />
 
@@ -15,9 +15,9 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://api.fontshare.com" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -28,19 +28,18 @@
   <header class="nav" id="nav" role="banner">
     <div class="container nav__inner">
       <a class="nav__brand" href="/" aria-label="Santiago Lopez — Home">
+        <span class="nav__brand-mark">SL</span>
         <span>Santiago Lopez</span>
         <small data-i18n="nav.role">Data Analyst</small>
       </a>
-
       <nav class="nav__menu" aria-label="Primary">
         <a class="nav__link" href="#projects" data-i18n="nav.projects">Projects</a>
         <a class="nav__link" href="#about" data-i18n="nav.about">About</a>
         <a class="nav__link" href="#experience" data-i18n="nav.experience">Experience</a>
         <a class="nav__link" href="#contact" data-i18n="nav.contact">Contact</a>
-
         <div class="lang-toggle" role="group" aria-label="Language">
-          <button type="button" data-lang="en" class="is-active" aria-label="English">EN</button>
-          <button type="button" data-lang="es" aria-label="Español">ES</button>
+          <button type="button" data-lang="en" class="is-active">EN</button>
+          <button type="button" data-lang="es">ES</button>
         </div>
       </nav>
     </div>
@@ -49,26 +48,24 @@
   <main id="main">
 
     <!-- ====================== HERO ====================== -->
-    <section class="hero">
-      <div class="hero__numeral" aria-hidden="true">2026</div>
+    <section class="hero section-cream">
       <div class="container hero__grid">
         <div class="hero__content">
-          <span class="eyebrow reveal" data-i18n="hero.eyebrow">Data Analyst · Business Intelligence</span>
-          <h1 class="hero__title reveal" data-delay="1">
-            <span data-i18n="hero.titleA">Turning raw data</span><br />
-            <em data-i18n="hero.titleB">into business decisions.</em>
+          <span class="eyebrow reveal" data-i18n="hero.eyebrow">Data Analyst · Open to roles</span>
+          <h1 class="hero__title reveal" data-delay="1" data-i18n-html="hero.title">
+            <span class="light">Turning raw data into</span>
+            <span class="bold">business decisions.</span>
           </h1>
-          <p class="hero__subtitle reveal" data-delay="2" data-i18n="hero.subtitle">
-            International Business student building a career in data analytics and business intelligence — combining a statistical foundation with AI-assisted workflows to deliver insights faster and at a higher quality bar.
+          <p class="hero__subtitle lead reveal" data-delay="2" data-i18n="hero.subtitle">
+            International Business student building a career in data analytics and business intelligence — combining a statistical foundation with AI-assisted workflows to deliver insights faster.
           </p>
           <div class="hero__ctas reveal" data-delay="3">
-            <a class="btn btn--primary" href="#projects">
+            <a class="btn btn-primary" href="#projects">
               <span data-i18n="hero.ctaPrimary">View case studies</span>
               <span class="arrow" aria-hidden="true">↓</span>
             </a>
-            <a class="btn btn--ghost" href="#contact" data-i18n="hero.ctaSecondary">Get in touch</a>
+            <a class="btn btn-outline" href="#contact" data-i18n="hero.ctaSecondary">Get in touch</a>
           </div>
-
           <dl class="hero__meta reveal" data-delay="4">
             <div>
               <dt data-i18n="hero.metaLocation">Based in</dt>
@@ -84,35 +81,77 @@
             </div>
           </dl>
         </div>
+
+        <!-- Floating code snippet card -->
+        <aside class="hero__code-card reveal" data-delay="3" aria-hidden="true">
+<pre><span class="tok-com"># showz.ipynb · cohort analysis</span>
+<span class="tok-kw">from</span> <span class="tok-var">scipy</span> <span class="tok-kw">import</span> <span class="tok-var">stats</span>
+
+<span class="tok-var">ltv_by_source</span> = (
+  <span class="tok-var">orders</span>
+    .groupby(<span class="tok-str">'source_id'</span>)[<span class="tok-str">'revenue'</span>]
+    .sum() / <span class="tok-var">customers</span>
+)
+
+<span class="tok-com"># ROMI ranking → 110× on source 1</span>
+<span class="tok-var">romi</span>.sort_values(<span class="tok-str">'romi'</span>,
+                  ascending=<span class="tok-num">False</span>)<span class="caret">&nbsp;</span></pre>
+          <span class="hero__float-tag tag-float" data-i18n="hero.floatTag">Notebook-backed</span>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ====================== STAT STRIP ====================== -->
+    <section class="stat-strip">
+      <div class="container stat-strip__inner">
+        <div class="stat-strip__item reveal">
+          <div class="stat-strip__num" data-count-to="3">0</div>
+          <p class="stat-strip__label" data-i18n="stat.cases">end-to-end case studies, notebook-backed.</p>
+        </div>
+        <div class="stat-strip__item reveal" data-delay="1">
+          <div class="stat-strip__num"><span data-count-to="16715">0</span><small>rows</small></div>
+          <p class="stat-strip__label" data-i18n="stat.rows">records analysed across cohort, EDA and A/B testing projects.</p>
+        </div>
+        <div class="stat-strip__item reveal" data-delay="2">
+          <div class="stat-strip__num" data-count-to="2">0</div>
+          <p class="stat-strip__label" data-i18n="stat.internships">data internships in remote, cross-cultural teams.</p>
+        </div>
       </div>
     </section>
 
     <!-- ====================== FEATURED PROJECTS ====================== -->
-    <section class="section" id="projects" aria-labelledby="projects-h">
+    <section class="section section-cream" id="projects" aria-labelledby="projects-h">
       <div class="container">
 
         <div class="section-head reveal">
           <div>
             <span class="eyebrow" data-i18n="projects.eyebrow">Featured Case Studies</span>
-            <h2 id="projects-h" data-i18n="projects.title">Three problems, solved with data.</h2>
+            <h2 id="projects-h" data-i18n-html="projects.title">
+              <span class="light">Three problems,</span>
+              <span class="bold">solved with data.</span>
+            </h2>
           </div>
           <div class="section-head__meta" data-i18n="projects.meta">Selected works — 2025</div>
         </div>
 
         <div class="projects-grid">
 
-          <!-- Project 01: Showz -->
+          <!-- Featured project (big) -->
           <a class="project-card reveal" data-delay="1" href="/projects/showz-marketing-performance">
-            <div>
-              <div class="project-card__numeral">01</div>
+            <div class="project-card__head">
+              <span class="num-badge">01</span>
               <span class="project-card__year">2025 · Marketing Analytics</span>
             </div>
-            <h3 class="project-card__title" data-i18n="projects.p1.title">Showz — Marketing Performance Analysis</h3>
-            <p class="project-card__desc" data-i18n="projects.p1.desc">Cohort analysis, LTV and ROMI evaluation across acquisition channels for a ticket-sales platform.</p>
+            <h3 class="project-card__title" data-i18n-html="projects.p1.title">
+              <span class="light">Showz —</span>
+              <span class="bold">Marketing Performance Analysis</span>
+            </h3>
+            <p class="project-card__desc" data-i18n="projects.p1.desc">Cohort analysis, LTV and ROMI evaluation across acquisition channels for a ticket-sales platform. Recommended a 30% spend reallocation.</p>
             <div class="project-card__tags">
               <span class="chip">Python</span>
               <span class="chip">Pandas</span>
               <span class="chip">Cohort Analysis</span>
+              <span class="chip">LTV / CAC</span>
             </div>
             <div class="project-card__cta">
               <span data-i18n="projects.cta">Read case study</span>
@@ -120,14 +159,16 @@
             </div>
           </a>
 
-          <!-- Project 02: Video Game Sales -->
           <a class="project-card reveal" data-delay="2" href="/projects/video-game-sales">
-            <div>
-              <div class="project-card__numeral">02</div>
-              <span class="project-card__year">2025 · EDA · Hypothesis Testing</span>
+            <div class="project-card__head">
+              <span class="num-badge">02</span>
+              <span class="project-card__year">2025 · EDA</span>
             </div>
-            <h3 class="project-card__title" data-i18n="projects.p2.title">Ice — Video Game Sales Analysis</h3>
-            <p class="project-card__desc" data-i18n="projects.p2.desc">EDA and statistical testing across 16,715 titles to plan a 2017 campaign for a global retailer.</p>
+            <h3 class="project-card__title" data-i18n-html="projects.p2.title">
+              <span class="light">Ice —</span>
+              <span class="bold">Video Game Sales Analysis</span>
+            </h3>
+            <p class="project-card__desc" data-i18n="projects.p2.desc">EDA and t-tests across 16,715 titles to plan a 2017 retailer campaign.</p>
             <div class="project-card__tags">
               <span class="chip">Python</span>
               <span class="chip">SciPy</span>
@@ -139,14 +180,16 @@
             </div>
           </a>
 
-          <!-- Project 03: Megaline -->
           <a class="project-card reveal" data-delay="3" href="/projects/megaline-revenue">
-            <div>
-              <div class="project-card__numeral">03</div>
-              <span class="project-card__year">2025 · Telecom · A/B Testing</span>
+            <div class="project-card__head">
+              <span class="num-badge">03</span>
+              <span class="project-card__year">2025 · A/B Testing</span>
             </div>
-            <h3 class="project-card__title" data-i18n="projects.p3.title">Megaline — Customer Revenue Analysis</h3>
-            <p class="project-card__desc" data-i18n="projects.p3.desc">Two-sample hypothesis testing to identify which prepaid plan generates higher revenue.</p>
+            <h3 class="project-card__title" data-i18n-html="projects.p3.title">
+              <span class="light">Megaline —</span>
+              <span class="bold">Customer Revenue Analysis</span>
+            </h3>
+            <p class="project-card__desc" data-i18n="projects.p3.desc">Two-sample hypothesis testing on prepaid plans — and a volume paradox.</p>
             <div class="project-card__tags">
               <span class="chip">Python</span>
               <span class="chip">SciPy</span>
@@ -162,25 +205,24 @@
       </div>
     </section>
 
-    <div class="container">
-      <div class="divider-ornament" aria-hidden="true"><span>✦</span></div>
-    </div>
-
     <!-- ====================== ABOUT ====================== -->
-    <section class="section-tight" id="about" aria-labelledby="about-h">
+    <section class="section section-dark" id="about" aria-labelledby="about-h">
       <div class="container">
 
         <div class="section-head reveal">
           <div>
             <span class="eyebrow" data-i18n="about.eyebrow">About</span>
-            <h2 id="about-h" data-i18n="about.title">Analyst by training, builder by instinct.</h2>
+            <h2 id="about-h" data-i18n-html="about.title">
+              <span class="light">Analyst by training,</span>
+              <span class="bold">builder by instinct.</span>
+            </h2>
           </div>
         </div>
 
         <div class="about-grid">
           <div class="about-content stack-lg reveal">
-            <p class="dropcap" data-i18n="about.p1">International Business student and Data Analyst with hands-on experience analysing operational data, building Power BI dashboards and automating business workflows. I combine a strong statistical foundation — hypothesis testing, probability, descriptive analysis — with modern AI-assisted development to deliver insights faster and at a higher quality bar.</p>
-            <p data-i18n="about.p2">I'm currently focused on landing a full-time Data Analyst role while continuing to strengthen my fundamentals through structured study and real-world projects. Comfortable working remotely across time zones, and equally at home in a stakeholder meeting or a Jupyter notebook.</p>
+            <p data-i18n-html="about.p1">International Business student and <span class="bold">Data Analyst</span> with hands-on experience analysing operational data, building Power BI dashboards and automating business workflows. I combine a strong statistical foundation — hypothesis testing, probability, descriptive analysis — with modern AI-assisted development to deliver insights faster.</p>
+            <p data-i18n="about.p2">Currently focused on landing a full-time Data Analyst role while continuing to strengthen my fundamentals through structured study and real-world projects.</p>
           </div>
 
           <div class="reveal" data-delay="1">
@@ -198,194 +240,244 @@
       </div>
     </section>
 
+    <!-- ====================== TRAJECTORY ====================== -->
+    <section class="section section-cream" aria-labelledby="traj-h">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow" data-i18n="traj.eyebrow">Trajectory</span>
+            <h2 id="traj-h" data-i18n-html="traj.title">
+              <span class="light">Skills, stacked.</span>
+              <span class="bold">A career in motion.</span>
+            </h2>
+          </div>
+          <div class="section-head__meta" data-i18n="traj.meta">Each bar = depth of skill at that stage.</div>
+        </div>
+
+        <div class="trajectory reveal">
+          <div class="trajectory__bars">
+            <div class="trajectory__bar">
+              <div class="trajectory__col">
+                <span class="trajectory__period" data-i18n="traj.b1Period">Foundation</span>
+                <h4 class="trajectory__title" data-i18n="traj.b1Title">Pre-bootcamp</h4>
+                <p class="trajectory__skill" data-i18n="traj.b1Skill">Business strategy, finance, trade — the lens behind the numbers.</p>
+              </div>
+              <div class="trajectory__year">2023</div>
+            </div>
+            <div class="trajectory__bar">
+              <div class="trajectory__col">
+                <span class="trajectory__period" data-i18n="traj.b2Period">Bootcamp</span>
+                <h4 class="trajectory__title" data-i18n="traj.b2Title">TripleTen</h4>
+                <p class="trajectory__skill" data-i18n="traj.b2Skill">Python, SQL, statistics, EDA, A/B testing, three real case studies.</p>
+              </div>
+              <div class="trajectory__year">Feb–Aug 2025</div>
+            </div>
+            <div class="trajectory__bar">
+              <div class="trajectory__col">
+                <span class="trajectory__period" data-i18n="traj.b3Period">Internship + Startup</span>
+                <h4 class="trajectory__title" data-i18n="traj.b3Title">Vosyn + VARAC</h4>
+                <p class="trajectory__skill" data-i18n="traj.b3Skill">Power BI dashboards, AI agent workflows, client requirements.</p>
+              </div>
+              <div class="trajectory__year">2025–26</div>
+            </div>
+            <div class="trajectory__bar">
+              <div class="trajectory__col">
+                <span class="trajectory__period" data-i18n="traj.b4Period">Now</span>
+                <h4 class="trajectory__title" data-i18n="traj.b4Title">micro1 + Codecademy</h4>
+                <p class="trajectory__skill" data-i18n="traj.b4Skill">AI output evaluation, BI fundamentals, actively seeking Data Analyst roles.</p>
+              </div>
+              <div class="trajectory__year">Apr 2026 →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ====================== EXPERIENCE ====================== -->
-    <section class="section-tight" id="experience" aria-labelledby="exp-h">
+    <section class="section section-cream" id="experience" aria-labelledby="exp-h">
       <div class="container">
 
         <div class="section-head reveal">
           <div>
             <span class="eyebrow" data-i18n="exp.eyebrow">Experience</span>
-            <h2 id="exp-h" data-i18n="exp.title">Where I've put data to work.</h2>
+            <h2 id="exp-h" data-i18n-html="exp.title">
+              <span class="light">Where I've put</span>
+              <span class="bold">data to work.</span>
+            </h2>
           </div>
         </div>
 
         <div class="timeline reveal">
 
-          <article class="timeline__item">
-            <div class="timeline__date is-current">Apr 2026 — <span data-i18n="exp.present">Present</span></div>
+          <article class="timeline-item">
+            <div class="timeline-item__date is-current">Apr 2026 — <span data-i18n="exp.present">Present</span></div>
             <div>
-              <h3 class="timeline__role">
+              <h3 class="timeline-item__role">
                 AI Output Evaluation Specialist
                 <small>micro1 · <span data-i18n="exp.remote">Remote</span></small>
               </h3>
-              <p class="timeline__desc" data-i18n="exp.micro1">Review and validate AI-generated outputs against quality guidelines, applying analytical criteria to identify errors and improve model performance.</p>
+              <p class="timeline-item__desc" data-i18n="exp.micro1">Review and validate AI-generated outputs against quality guidelines, applying analytical criteria to identify errors and improve model performance.</p>
             </div>
           </article>
 
-          <article class="timeline__item">
-            <div class="timeline__date">Oct 2025 — Apr 2026</div>
+          <article class="timeline-item">
+            <div class="timeline-item__date">Oct 2025 — Apr 2026</div>
             <div>
-              <h3 class="timeline__role">
+              <h3 class="timeline-item__role">
                 AI Automation &amp; Operations Associate
                 <small>VARAC · <span data-i18n="exp.remote">Remote</span></small>
               </h3>
-              <p class="timeline__desc" data-i18n="exp.varac">Built AI agents and automation workflows for business clients using Python, n8n, FastAPI and React. Led client meetings, requirements gathering and end-to-end project delivery in a fast-paced startup environment.</p>
+              <p class="timeline-item__desc" data-i18n="exp.varac">Built AI agents and automation workflows for business clients using Python, n8n, FastAPI and React. Led client meetings, requirements gathering and end-to-end project delivery in a fast-paced startup environment.</p>
             </div>
           </article>
 
-          <article class="timeline__item">
-            <div class="timeline__date">Jul — Sept 2025</div>
+          <article class="timeline-item">
+            <div class="timeline-item__date">Jul — Sept 2025</div>
             <div>
-              <h3 class="timeline__role">
+              <h3 class="timeline-item__role">
                 Data Analytics &amp; Visualization Intern
                 <small>Vosyn Inc. · <span data-i18n="exp.canada">Remote (Ontario, Canada)</span></small>
               </h3>
-              <p class="timeline__desc" data-i18n="exp.vosyn">Cleaned and analysed productivity datasets across departments. Designed interactive Power BI dashboards to track KPIs and surface trends for senior management.</p>
+              <p class="timeline-item__desc" data-i18n="exp.vosyn">Cleaned and analysed productivity datasets across departments. Designed interactive Power BI dashboards to track KPIs and surface trends for senior management.</p>
             </div>
           </article>
 
         </div>
-
       </div>
     </section>
 
     <!-- ====================== EDUCATION ====================== -->
-    <section class="section-tight" aria-labelledby="edu-h">
+    <section class="section section-peach" aria-labelledby="edu-h">
       <div class="container">
-
         <div class="section-head reveal">
           <div>
             <span class="eyebrow" data-i18n="edu.eyebrow">Education</span>
-            <h2 id="edu-h" data-i18n="edu.title">Always learning, structured.</h2>
+            <h2 id="edu-h" data-i18n-html="edu.title">
+              <span class="light">Always learning,</span>
+              <span class="bold">structured.</span>
+            </h2>
           </div>
         </div>
 
-        <div class="timeline reveal">
-          <article class="timeline__item">
-            <div class="timeline__date is-current">Apr 2026 — <span data-i18n="edu.inProgress">In progress</span></div>
-            <div>
-              <h3 class="timeline__role">
-                BI Data Analyst Career Path
-                <small>Codecademy</small>
-              </h3>
-              <p class="timeline__desc" data-i18n="edu.codecademy">Strengthening BI fundamentals — dimensional modelling, advanced SQL, dashboarding patterns.</p>
-            </div>
-          </article>
-
-          <article class="timeline__item">
-            <div class="timeline__date">Feb — Aug 2025</div>
-            <div>
-              <h3 class="timeline__role">
-                Data Analyst Bootcamp
-                <small>TripleTen Tech · <span data-i18n="edu.completed">Completed</span></small>
-              </h3>
-              <p class="timeline__desc" data-i18n="edu.tripleten">11-sprint program covering Python, SQL, statistics, EDA, A/B testing and dashboarding — graduated with three end-to-end portfolio projects.</p>
-            </div>
-          </article>
-
-          <article class="timeline__item">
-            <div class="timeline__date">Aug 2023 — <span data-i18n="exp.present">Present</span></div>
-            <div>
-              <h3 class="timeline__role">
-                Bachelor's, International Business Administration
-                <small>Universidad del Valle de México</small>
-              </h3>
-              <p class="timeline__desc" data-i18n="edu.uvm">Grounding in business strategy, international trade, finance and operations — the lens I bring to every dataset.</p>
-            </div>
-          </article>
+        <div class="edu-cards reveal">
+          <div class="edu-card">
+            <div class="edu-card__year">Apr 2026 — <span data-i18n="edu.inProgress">In progress</span></div>
+            <h3 class="edu-card__title">BI Data Analyst Career Path</h3>
+            <div class="edu-card__inst">Codecademy</div>
+            <p class="edu-card__desc" data-i18n="edu.codecademy">Strengthening BI fundamentals — dimensional modelling, advanced SQL, dashboarding patterns.</p>
+          </div>
+          <div class="edu-card">
+            <div class="edu-card__year">Feb — Aug 2025 · <span data-i18n="edu.completed">Completed</span></div>
+            <h3 class="edu-card__title">Data Analyst Bootcamp</h3>
+            <div class="edu-card__inst">TripleTen Tech</div>
+            <p class="edu-card__desc" data-i18n="edu.tripleten">11-sprint program covering Python, SQL, statistics, EDA, A/B testing and dashboarding.</p>
+          </div>
+          <div class="edu-card">
+            <div class="edu-card__year">Aug 2023 — <span data-i18n="exp.present">Present</span></div>
+            <h3 class="edu-card__title">B.A., International Business</h3>
+            <div class="edu-card__inst">Universidad del Valle de México</div>
+            <p class="edu-card__desc" data-i18n="edu.uvm">Grounding in business strategy, international trade, finance and operations.</p>
+          </div>
         </div>
-
       </div>
     </section>
 
     <!-- ====================== TECH STACK ====================== -->
-    <section class="section-tight" aria-labelledby="stack-h">
+    <section class="section section-dark" aria-labelledby="stack-h">
       <div class="container">
 
         <div class="section-head reveal">
           <div>
             <span class="eyebrow" data-i18n="stack.eyebrow">Tech Stack</span>
-            <h2 id="stack-h" data-i18n="stack.title">The toolkit, organised.</h2>
+            <h2 id="stack-h" data-i18n-html="stack.title">
+              <span class="light">The toolkit,</span>
+              <span class="bold">organised.</span>
+            </h2>
           </div>
           <div class="section-head__meta" data-i18n="stack.meta">No badge soup — actual fluency.</div>
         </div>
 
-        <div class="stack-grid reveal">
+        <div class="stack-grid reveal" style="display: grid; gap: var(--s-6);">
 
           <div class="stack-cat">
             <h4 class="stack-cat__title" data-i18n="stack.cat1">Data &amp; Analysis</h4>
-            <div class="stack-cat__items">
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/python" alt="" loading="lazy" />Python</span>
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/pandas/150458" alt="" loading="lazy" />Pandas</span>
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/numpy" alt="" loading="lazy" />NumPy</span>
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/scipy" alt="" loading="lazy" />SciPy</span>
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/mysql" alt="" loading="lazy" />SQL</span>
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/postgresql" alt="" loading="lazy" />PostgreSQL</span>
+            <div class="stack-cat__grid">
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/python" alt="" loading="lazy" /><span class="stack-tile__label">Python</span></span>
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/pandas/E0E0E0" alt="" loading="lazy" /><span class="stack-tile__label">Pandas</span></span>
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/numpy/E0E0E0" alt="" loading="lazy" /><span class="stack-tile__label">NumPy</span></span>
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/scipy" alt="" loading="lazy" /><span class="stack-tile__label">SciPy</span></span>
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/mysql/E0E0E0" alt="" loading="lazy" /><span class="stack-tile__label">SQL</span></span>
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/postgresql" alt="" loading="lazy" /><span class="stack-tile__label">PostgreSQL</span></span>
             </div>
           </div>
 
           <div class="stack-cat">
             <h4 class="stack-cat__title" data-i18n="stack.cat2">Visualization &amp; BI</h4>
-            <div class="stack-cat__items">
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/powerbi" alt="" loading="lazy" />Power BI</span>
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/plotly" alt="" loading="lazy" />Plotly</span>
-              <span class="tool-chip"><svg class="tool-chip__icon" data-style="mono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16V9"/><path d="M11 16V5"/><path d="M16 16v-4"/><path d="M21 16v-8"/></svg>Matplotlib</span>
-              <span class="tool-chip"><svg class="tool-chip__icon" data-style="mono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="10" r="2.5"/><circle cx="13" cy="6" r="2.5"/><circle cx="18" cy="14" r="2.5"/><circle cx="10" cy="17" r="2.5"/></svg>Seaborn</span>
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="" loading="lazy" />Excel</span>
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/googlesheets/34A853" alt="" loading="lazy" />Google Sheets</span>
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/tableau" alt="" loading="lazy" />Tableau <small class="tool-chip__sub" data-i18n="stack.learning">(learning)</small></span>
+            <div class="stack-cat__grid">
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/powerbi" alt="" loading="lazy" /><span class="stack-tile__label">Power BI</span></span>
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/plotly/E0E0E0" alt="" loading="lazy" /><span class="stack-tile__label">Plotly</span></span>
+              <span class="stack-tile">
+                <svg class="stack-tile__icon" data-mono viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16V9"/><path d="M11 16V5"/><path d="M16 16v-4"/><path d="M21 16v-8"/></svg>
+                <span class="stack-tile__label">Matplotlib</span>
+              </span>
+              <span class="stack-tile">
+                <svg class="stack-tile__icon" data-mono viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="10" r="2.5"/><circle cx="13" cy="6" r="2.5"/><circle cx="18" cy="14" r="2.5"/><circle cx="10" cy="17" r="2.5"/></svg>
+                <span class="stack-tile__label">Seaborn</span>
+              </span>
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/microsoftexcel" alt="" loading="lazy" /><span class="stack-tile__label">Excel</span></span>
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/tableau/E0E0E0" alt="" loading="lazy" /><span class="stack-tile__label">Tableau</span></span>
             </div>
           </div>
 
           <div class="stack-cat">
             <h4 class="stack-cat__title" data-i18n="stack.cat3">Statistics</h4>
-            <div class="stack-cat__items">
-              <span class="tool-chip tool-chip--abstract">
-                <svg class="tool-chip__icon" data-style="mono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19h18"/><path d="M3 19c4 0 5-13 9-13s5 13 9 13"/></svg>
-                <span data-i18n="stack.hyp">Hypothesis Testing</span>
+            <div class="stack-cat__grid">
+              <span class="stack-tile">
+                <svg class="stack-tile__icon" data-mono viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19h18"/><path d="M3 19c4 0 5-13 9-13s5 13 9 13"/></svg>
+                <span class="stack-tile__label" data-i18n="stack.hyp">Hypothesis Testing</span>
               </span>
-              <span class="tool-chip tool-chip--abstract">
-                <svg class="tool-chip__icon" data-style="mono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="16" cy="16" r="1.3" fill="currentColor" stroke="none"/><circle cx="8" cy="16" r="1.3" fill="currentColor" stroke="none"/><circle cx="16" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg>
-                <span data-i18n="stack.prob">Probability</span>
+              <span class="stack-tile">
+                <svg class="stack-tile__icon" data-mono viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="16" cy="16" r="1.3" fill="currentColor" stroke="none"/><circle cx="8" cy="16" r="1.3" fill="currentColor" stroke="none"/><circle cx="16" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg>
+                <span class="stack-tile__label" data-i18n="stack.prob">Probability</span>
               </span>
-              <span class="tool-chip tool-chip--abstract">
-                <svg class="tool-chip__icon" data-style="mono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><rect x="5" y="12" width="3" height="8"/><rect x="10.5" y="7" width="3" height="13"/><rect x="16" y="14" width="3" height="6"/></svg>
-                <span data-i18n="stack.desc">Descriptive Analysis</span>
+              <span class="stack-tile">
+                <svg class="stack-tile__icon" data-mono viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><rect x="5" y="12" width="3" height="8"/><rect x="10.5" y="7" width="3" height="13"/><rect x="16" y="14" width="3" height="6"/></svg>
+                <span class="stack-tile__label" data-i18n="stack.desc">Descriptive Analysis</span>
               </span>
-              <span class="tool-chip tool-chip--abstract">
-                <svg class="tool-chip__icon" data-style="mono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="7.5" height="14" rx="1.2"/><rect x="13.5" y="5" width="7.5" height="14" rx="1.2"/><path d="M6.75 9v6"/><path d="M17.25 9v6"/></svg>
-                A/B Testing
+              <span class="stack-tile">
+                <svg class="stack-tile__icon" data-mono viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="7.5" height="14" rx="1.2"/><rect x="13.5" y="5" width="7.5" height="14" rx="1.2"/><path d="M6.75 9v6"/><path d="M17.25 9v6"/></svg>
+                <span class="stack-tile__label">A/B Testing</span>
               </span>
             </div>
           </div>
 
           <div class="stack-cat">
             <h4 class="stack-cat__title" data-i18n="stack.cat4">AI &amp; Automation</h4>
-            <div class="stack-cat__items">
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/n8n" alt="" loading="lazy" />n8n</span>
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/anthropic/D97757" alt="" loading="lazy" />Claude Code</span>
-              <span class="tool-chip tool-chip--abstract">
-                <svg class="tool-chip__icon" data-style="mono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M5 8v3a2 2 0 0 0 2 2h2"/><path d="M19 8v3a2 2 0 0 1-2 2h-2"/><path d="M12 16v-3"/></svg>
-                LLM Workflows
+            <div class="stack-cat__grid">
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/n8n" alt="" loading="lazy" /><span class="stack-tile__label">n8n</span></span>
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/anthropic/D97757" alt="" loading="lazy" /><span class="stack-tile__label">Claude Code</span></span>
+              <span class="stack-tile">
+                <svg class="stack-tile__icon" data-mono viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M5 8v3a2 2 0 0 0 2 2h2"/><path d="M19 8v3a2 2 0 0 1-2 2h-2"/><path d="M12 16v-3"/></svg>
+                <span class="stack-tile__label">LLM Workflows</span>
               </span>
-              <span class="tool-chip tool-chip--abstract">
-                <svg class="tool-chip__icon" data-style="mono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10"/><path d="M4 12h12"/><path d="M4 17h8"/><path d="M18 14l2 2-4 4"/></svg>
-                Prompt Engineering
+              <span class="stack-tile">
+                <svg class="stack-tile__icon" data-mono viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10"/><path d="M4 12h12"/><path d="M4 17h8"/><path d="M18 14l2 2-4 4"/></svg>
+                <span class="stack-tile__label">Prompt Engineering</span>
               </span>
             </div>
           </div>
 
           <div class="stack-cat">
             <h4 class="stack-cat__title" data-i18n="stack.cat5">Tools</h4>
-            <div class="stack-cat__items">
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/git" alt="" loading="lazy" />Git</span>
-              <span class="tool-chip"><svg class="tool-chip__icon" data-style="mono" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.05c-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39s1.97.13 2.89.39c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.79.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>GitHub</span>
-              <span class="tool-chip tool-chip--abstract">
-                <svg class="tool-chip__icon" data-style="mono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 11l3 2-3 2"/><line x1="12.5" y1="15" x2="17" y2="15"/></svg>
-                CLI
+            <div class="stack-cat__grid">
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/git" alt="" loading="lazy" /><span class="stack-tile__label">Git</span></span>
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/github/E0E0E0" alt="" loading="lazy" /><span class="stack-tile__label">GitHub</span></span>
+              <span class="stack-tile">
+                <svg class="stack-tile__icon" data-mono viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 11l3 2-3 2"/><line x1="12.5" y1="15" x2="17" y2="15"/></svg>
+                <span class="stack-tile__label">CLI</span>
               </span>
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/visualstudiocode" alt="" loading="lazy" />VS Code</span>
-              <span class="tool-chip"><img class="tool-chip__icon" src="https://cdn.simpleicons.org/jupyter" alt="" loading="lazy" />Jupyter</span>
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/visualstudiocode" alt="" loading="lazy" /><span class="stack-tile__label">VS Code</span></span>
+              <span class="stack-tile"><img class="stack-tile__icon" src="https://cdn.simpleicons.org/jupyter" alt="" loading="lazy" /><span class="stack-tile__label">Jupyter</span></span>
             </div>
           </div>
 
@@ -394,51 +486,48 @@
     </section>
 
     <!-- ====================== CONTACT ====================== -->
-    <section class="section" id="contact" aria-labelledby="contact-h">
+    <section class="section section-cream" id="contact" aria-labelledby="contact-h">
       <div class="container">
+        <div class="contact-card reveal">
+          <span class="eyebrow" data-i18n="contact.eyebrow">Get in touch</span>
+          <h2 id="contact-h" class="contact-card__title" data-i18n-html="contact.title">
+            <span class="light">Let's</span>
+            <span class="bold">talk data.</span>
+          </h2>
+          <p class="contact-card__lead" data-i18n="contact.body">
+            I'm open to remote Data Analyst, BI and analytics-engineering roles. Reach out — happy to share my CV, walk through a case study or just trade notes.
+          </p>
 
-        <div class="contact reveal">
-
-          <div class="contact__intro">
-            <span class="eyebrow" data-i18n="contact.eyebrow">Get in touch</span>
-            <h2 id="contact-h" data-i18n="contact.title">Let's talk data.</h2>
-            <p class="lead" style="color: rgba(250, 248, 243, 0.78); margin-top: var(--s-4); max-width: 32rem;" data-i18n="contact.body">
-              I'm open to remote Data Analyst, BI and analytics-engineering roles. Reach out — happy to share my CV, walk through a case study or just trade notes.
-            </p>
+          <div class="contact-details">
+            <a class="contact-detail" href="mailto:santiagocast.colegionaciones@gmail.com">
+              <div class="contact-detail__label">Email</div>
+              <div class="contact-detail__value">santiagocast.colegionaciones@gmail.com</div>
+            </a>
+            <a class="contact-detail" href="tel:+522213419629">
+              <div class="contact-detail__label" data-i18n="contact.phone">Phone</div>
+              <div class="contact-detail__value">+52 221 341 9629</div>
+            </a>
+            <a class="contact-detail" href="https://www.linkedin.com/in/santiago-lopez-data-analyst/" target="_blank" rel="noopener">
+              <div class="contact-detail__label">LinkedIn</div>
+              <div class="contact-detail__value">santiago-lopez-data-analyst</div>
+            </a>
+            <a class="contact-detail" href="https://github.com/Sanlc10" target="_blank" rel="noopener">
+              <div class="contact-detail__label">GitHub</div>
+              <div class="contact-detail__value">@Sanlc10</div>
+            </a>
           </div>
 
-          <dl class="contact__details">
-            <div class="contact__row">
-              <dt>Email</dt>
-              <dd><a href="mailto:santiagocast.colegionaciones@gmail.com">santiagocast.colegionaciones@gmail.com</a></dd>
-            </div>
-            <div class="contact__row">
-              <dt data-i18n="contact.phone">Phone</dt>
-              <dd><a href="tel:+522213419629">+52 221 341 9629</a></dd>
-            </div>
-            <div class="contact__row">
-              <dt>LinkedIn</dt>
-              <dd><a href="https://www.linkedin.com/in/santiago-lopez-data-analyst/" target="_blank" rel="noopener">santiago-lopez-data-analyst</a></dd>
-            </div>
-            <div class="contact__row">
-              <dt>GitHub</dt>
-              <dd><a href="https://github.com/Sanlc10" target="_blank" rel="noopener">@Sanlc10</a></dd>
-            </div>
-          </dl>
-
-          <div class="contact__ctas">
-            <a class="btn btn--on-cobalt" href="mailto:santiagocast.colegionaciones@gmail.com">
+          <div class="contact-card__ctas">
+            <a class="btn btn-primary" href="mailto:santiagocast.colegionaciones@gmail.com">
               <span data-i18n="contact.ctaPrimary">Email me</span>
               <span class="arrow" aria-hidden="true">↗</span>
             </a>
-            <a class="btn btn--ghost-on-cobalt" href="https://www.linkedin.com/in/santiago-lopez-data-analyst/" target="_blank" rel="noopener">
+            <a class="btn btn-outline" href="https://www.linkedin.com/in/santiago-lopez-data-analyst/" target="_blank" rel="noopener">
               <span data-i18n="contact.ctaSecondary">Connect on LinkedIn</span>
               <span class="arrow" aria-hidden="true">↗</span>
             </a>
           </div>
-
         </div>
-
       </div>
     </section>
 
@@ -449,7 +538,7 @@
     <div class="container footer__inner">
       <div>
         <span data-i18n="footer.built">Built with HTML · CSS · JS</span> ·
-        <a class="link" href="https://github.com/Sanlc10" target="_blank" rel="noopener" data-i18n="footer.source">View source</a>
+        <a class="link" href="https://github.com/Sanlc10/data-analyst-portfolio" target="_blank" rel="noopener" data-i18n="footer.source">View source</a>
       </div>
       <div>&copy; <span id="year">2026</span> Santiago Lopez</div>
     </div>

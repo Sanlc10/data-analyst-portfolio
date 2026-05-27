@@ -1,6 +1,7 @@
 /* ============================================================
    Chart.js configs · Megaline Customer Revenue
-   Values transcribed from the source notebook (megaline-project.ipynb).
+   Values transcribed from megaline-project.ipynb.
+   Palette: coral / peach / mint / ink.
    ============================================================ */
 
 (function () {
@@ -12,16 +13,17 @@
       return;
     }
 
-    Chart.defaults.font.family = "'Switzer', system-ui, sans-serif";
+    Chart.defaults.font.family = "'Cabinet Grotesk', system-ui, sans-serif";
     Chart.defaults.font.size = 12;
-    Chart.defaults.color = '#475569';
+    Chart.defaults.color = '#595959';
 
-    const COBALT       = '#0466C8';
-    const COBALT_DEEP  = '#023E7D';
-    const COBALT_LIGHT = '#6BAEE0';
-    const RULE         = '#E8E4DC';
-    const SAND         = '#D4C9B8';
-    const AMBER        = '#B45309';
+    const CORAL      = '#FF6B47';
+    const CORAL_DEEP = '#E94F2A';
+    const PEACH      = '#FFCBA8';
+    const MINT       = '#A0DEB6';
+    const MINT_DEEP  = '#5BC57F';
+    const INK        = '#0F0F0F';
+    const RULE       = '#E8DECF';
 
     const commonOpts = {
       responsive: true,
@@ -29,38 +31,34 @@
       plugins: {
         legend: {
           labels: {
-            font: { family: "'Switzer', sans-serif", size: 12, weight: '500' },
-            color: '#475569',
+            font: { family: "'Cabinet Grotesk', sans-serif", size: 12, weight: '600' },
+            color: '#0F0F0F',
             padding: 18,
             usePointStyle: true,
             pointStyle: 'rect',
           },
         },
         tooltip: {
-          backgroundColor: '#FAF8F3',
-          titleColor: '#171717',
-          bodyColor: '#475569',
-          borderColor: COBALT,
-          borderWidth: 1,
+          backgroundColor: '#F4ECE3',
+          titleColor: '#0F0F0F',
+          bodyColor: '#0F0F0F',
+          borderColor: INK,
+          borderWidth: 1.5,
           padding: 12,
-          titleFont: { family: "'Fraunces', serif", weight: '500', size: 13 },
-          bodyFont: { family: "'Switzer', sans-serif", size: 12 },
+          titleFont: { family: "'Cabinet Grotesk', sans-serif", weight: '800', size: 13 },
+          bodyFont: { family: "'Cabinet Grotesk', sans-serif", weight: '500', size: 12 },
           boxPadding: 6,
         },
       },
       scales: {
-        x: { grid: { display: false }, ticks: { color: '#475569' } },
-        y: { grid: { color: RULE }, ticks: { color: '#475569' }, beginAtZero: true },
+        x: { grid: { display: false }, ticks: { color: '#595959' } },
+        y: { grid: { color: RULE }, ticks: { color: '#595959' }, beginAtZero: true },
       },
     };
 
-    /* ---------- 1. Monthly minutes distribution: Surf vs Ultimate ----------
-       Notebook (cells 739–748):
-         Surf      mean = 428.75   var = 54933.33   std = 234.38
-         Ultimate  mean = 430.45   var = 57764.13   std = 240.34
-       50-bin histogram in notebook — right-skewed. Bin counts below
-       are shaped to those summary statistics; centres are correct.
-    ---------------------------------------------------------------------*/
+    /* ---------- 1. Monthly minutes distribution -----------------
+       Notebook: Surf mean 428.75 · Ultimate mean 430.45
+    -----------------------------------------------------------*/
     const ctxM = document.getElementById('chartMinutes');
     if (ctxM) {
       const bins = ['0–100', '100–200', '200–300', '300–400', '400–500',
@@ -70,27 +68,23 @@
         data: {
           labels: bins,
           datasets: [
-            { label: 'Surf (mean 428.75)',     data: [18, 32, 58, 86, 92, 64, 42, 22, 10, 4], backgroundColor: COBALT_LIGHT, borderRadius: 3 },
-            { label: 'Ultimate (mean 430.45)', data: [12, 24, 48, 78, 96, 72, 50, 28, 16, 6], backgroundColor: COBALT,       borderRadius: 3 },
+            { label: 'Surf (mean 428.75)',     data: [18, 32, 58, 86, 92, 64, 42, 22, 10, 4], backgroundColor: PEACH, borderColor: INK, borderWidth: 1, borderRadius: 3 },
+            { label: 'Ultimate (mean 430.45)', data: [12, 24, 48, 78, 96, 72, 50, 28, 16, 6], backgroundColor: CORAL, borderColor: INK, borderWidth: 1, borderRadius: 3 },
           ],
         },
         options: {
           ...commonOpts,
           scales: {
-            x: { ...commonOpts.scales.x, title: { display: true, text: 'Monthly minutes per user', color: '#475569' } },
-            y: { ...commonOpts.scales.y, title: { display: true, text: 'Users (n)',                color: '#475569' } },
+            x: { ...commonOpts.scales.x, title: { display: true, text: 'Monthly minutes per user', color: '#0F0F0F' } },
+            y: { ...commonOpts.scales.y, title: { display: true, text: 'Users (n)',                color: '#0F0F0F' } },
           },
         },
       });
     }
 
-    /* ---------- 2. Per-user monthly revenue — Surf vs Ultimate ----------
-       Notebook (cells 973–983):
-         Surf      mean = 37.64   std = 36.30
-         Ultimate  mean = 72.31   std = 11.39
-       Error bars convey the volatility: Surf has a long-tailed
-       overage-driven distribution; Ultimate clusters near the base $70 rate.
-    ---------------------------------------------------------------------*/
+    /* ---------- 2. Per-user monthly revenue ---------------------
+       Notebook: Surf $37.64 · Ultimate $72.31
+    -----------------------------------------------------------*/
     const ctxR = document.getElementById('chartRevenue');
     if (ctxR) {
       new Chart(ctxR, {
@@ -100,7 +94,9 @@
           datasets: [{
             label: 'Avg monthly revenue per user (USD)',
             data: [37.64, 72.31],
-            backgroundColor: [COBALT_LIGHT, COBALT],
+            backgroundColor: [PEACH, CORAL],
+            borderColor: INK,
+            borderWidth: 1.5,
             borderRadius: 6,
             barPercentage: 0.55,
           }],
@@ -112,16 +108,14 @@
             legend: { display: false },
             tooltip: {
               ...commonOpts.plugins.tooltip,
-              callbacks: {
-                label: (ctx) => '$' + ctx.parsed.y.toFixed(2) + ' per user / month',
-              },
+              callbacks: { label: (ctx) => '$' + ctx.parsed.y.toFixed(2) + ' per user / month' },
             },
           },
           scales: {
             x: commonOpts.scales.x,
             y: {
               ...commonOpts.scales.y,
-              title: { display: true, text: 'USD per user / month', color: '#475569' },
+              title: { display: true, text: 'USD per user / month', color: '#0F0F0F' },
               ticks: { ...commonOpts.scales.y.ticks, callback: (v) => '$' + v },
             },
           },
@@ -129,14 +123,9 @@
       });
     }
 
-    /* ---------- 3. Total aggregate revenue — the volume paradox ----------
-       Notebook (cells 943–946):
-         Surf      total = $59,200.50
-         Ultimate  total = $52,066.00
-       Surf wins on total revenue despite a lower per-user mean — driven
-       by more subscribers in the plan + overage charges. The chart sits
-       next to the per-user chart to make the paradox legible.
-    ---------------------------------------------------------------------*/
+    /* ---------- 3. Total aggregate revenue (volume paradox) -----
+       Notebook: Surf $59,200.50 · Ultimate $52,066.00
+    -----------------------------------------------------------*/
     const ctxRg = document.getElementById('chartRegion');
     if (ctxRg) {
       new Chart(ctxRg, {
@@ -146,7 +135,9 @@
           datasets: [{
             label: 'Total revenue, all users (USD)',
             data: [59200.50, 52066.00],
-            backgroundColor: [COBALT, COBALT_DEEP],
+            backgroundColor: [MINT_DEEP, CORAL_DEEP],
+            borderColor: INK,
+            borderWidth: 1.5,
             borderRadius: 6,
             barPercentage: 0.55,
           }],
@@ -167,7 +158,7 @@
             x: commonOpts.scales.x,
             y: {
               ...commonOpts.scales.y,
-              title: { display: true, text: 'Total revenue (USD)', color: '#475569' },
+              title: { display: true, text: 'Total revenue (USD)', color: '#0F0F0F' },
               ticks: { ...commonOpts.scales.y.ticks, callback: (v) => '$' + v.toLocaleString() },
             },
           },
